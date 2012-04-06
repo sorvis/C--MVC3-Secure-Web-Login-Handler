@@ -38,10 +38,10 @@ namespace Web_Security_Backend_Login_Handler.Controllers
                 return View();
             }
 
-            Initialize_Session_Holder session = new Initialize_Session_Holder(db, remote_public_key);
+            Session_Holder session = new Session_Holder(db, remote_public_key);
             db.store_initialize_data(session);
-
             ViewBag.message = session.encrypted_message;
+
             return View();
         }
 
@@ -50,6 +50,13 @@ namespace Web_Security_Backend_Login_Handler.Controllers
 
         public ActionResult authenticate(string data, int id)
         {
+            Session_Holder session = db.get_session(id);
+            if (session == null || session.expired)
+            {
+                return View();
+            }
+            db.expire_session(id);
+
             return View();
         }
 

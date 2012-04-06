@@ -21,5 +21,31 @@ namespace Web_Security_Backend_Login_Handler.Models
         {
             throw new NotImplementedException();
         }
+
+
+        bool IDataRepository.check_that_initialize_is_not_locked()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IDataRepository.store_failed_initialize_attempt(string key)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IDataRepository.store_initialize_data(Session_Holder session)
+        {
+            throw new NotImplementedException();
+        }
+
+        Session_Holder IDataRepository.get_session(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IDataRepository.expire_session(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
