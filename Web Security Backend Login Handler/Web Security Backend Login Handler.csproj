@@ -72,6 +72,7 @@
     <Compile Include="Models\Display_Data\Picture1.cs" />
     <Compile Include="Models\encryption_wrapper.cs" />
     <Compile Include="Models\IDataRepository.cs" />
+    <Compile Include="Models\Raw_Data_Builder.cs" />
     <Compile Include="Models\Server_keys.cs" />
     <Compile Include="Models\Session_Holder.cs" />
     <Compile Include="Models\session_id_generator.cs" />
@@ -140,7 +141,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Views\Authentication\authenticate.cshtml" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

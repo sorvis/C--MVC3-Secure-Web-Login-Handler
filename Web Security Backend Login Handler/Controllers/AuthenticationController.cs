@@ -51,11 +51,13 @@ namespace Web_Security_Backend_Login_Handler.Controllers
         public ActionResult authenticate(string data, int id)
         {
             Session_Holder session = db.get_session(id);
-            if (session == null || session.expired)
+            if (session == null || session.expired || !validate_key.validate(data))
             {
                 return View();
             }
             db.expire_session(id);
+            string decrypted_data = encryption_wrapper.decrypt_message(session.server_key.private_key, data);
+            Raw_Data_Builder data_dictionary = new Raw_Data_Builder(decrypted_data);
 
             return View();
         }

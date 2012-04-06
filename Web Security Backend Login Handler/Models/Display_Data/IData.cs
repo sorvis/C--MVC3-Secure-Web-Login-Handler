@@ -12,5 +12,6 @@ namespace Web_Security_Backend_Login_Handler.Models.Display_Data
         /// </summary>
         /// <returns></returns>
         string ToString();
+        string Name { get; set; }
     }
 }

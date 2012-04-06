@@ -35,7 +35,7 @@ namespace Test.Web_Security_Backend_Login_Handler
 
         bool IDataRepository.check_for_unique_data_string(string data)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         bool IDataRepository.check_that_initialize_is_not_locked()
