@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Web_Security_Backend_Login_Handler.Models
 {
-    public static class ecryption_wrapper
+    public static class encryption_wrapper
     {
         //TODO: need to impliment with Scotts encrption
 

@@ -22,24 +22,26 @@ namespace Web_Security_Backend_Login_Handler.Controllers
         //
         // GET: /Authentication/initialize?key=fdlkgjlfjasf&
 
-        public ActionResult initialize(string key)
+        public ActionResult initialize(string remote_public_key)
         {
-            if (validate_key.validate(key) &&
-                db.check_for_unique_key(key)&&
+
+            if (validate_key.validate(remote_public_key) &&
+                db.check_for_unique_key(remote_public_key)&&
                 db.check_that_initialize_is_not_locked())
             {
-                key = validate_key.clean_key(key);
+                remote_public_key = validate_key.clean_key(remote_public_key);
             }
             else//somone tried passing in a bad key
             {
-                db.store_failed_initialize_attempt(key);
+                db.store_failed_initialize_attempt(remote_public_key);
                 ViewBag.message = "lasdflj2fjlwjefljawlj3";
                 return View();
             }
 
-            int session_id = session_id_generator.make_random_id(db);
-            string session_data = data_generator.get_random_data(db);
+            Initialize_Session_Holder session = new Initialize_Session_Holder(db, remote_public_key);
+            db.store_initialize_data(session);
 
+            ViewBag.message = session.encrypted_message;
             return View();
         }
 
