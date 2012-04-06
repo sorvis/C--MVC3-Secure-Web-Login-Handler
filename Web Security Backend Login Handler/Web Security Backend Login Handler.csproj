@@ -66,6 +66,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataEntities.cs" />
+    <Compile Include="Models\data_generator.cs" />
+    <Compile Include="Models\Display_Data\IData.cs" />
+    <Compile Include="Models\Display_Data\Picture1.cs" />
+    <Compile Include="Models\ecryption_wrapper.cs" />
+    <Compile Include="Models\IDataRepository.cs" />
+    <Compile Include="Models\Server_keys.cs" />
+    <Compile Include="Models\session_id_generator.cs" />
     <Compile Include="Models\validate_key.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
