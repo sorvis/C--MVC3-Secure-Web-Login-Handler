@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Web_Security_Backend_Login_Handler.Models;
 
 namespace Web_Security_Backend_Login_Handler.Controllers
 {
@@ -17,17 +18,27 @@ namespace Web_Security_Backend_Login_Handler.Controllers
         //}
 
         //
-        // GET: /Analysis/initialize?key=fdlkgjlfjasf&
+        // GET: /Authentication/initialize?key=fdlkgjlfjasf&
 
         public ActionResult initialize(string key)
         {
+            if (validate_key.validate(key))
+            {
+                key = validate_key.clean_key(key);
+            }
+            else//somone tried passing in a bad key
+            {
+                ViewBag.message = "lasdflj2fjlwjefljawlj3";
+                return View();
+            }
+
             return View();
         }
 
         //
-        // GET: /Analysis/authenticate?data=fdlkgjlfjasf&id=2354
+        // GET: /Authentication/authenticate?data=fdlkgjlfjasf&id=2354
 
-        public ActionResult initialize(string data, int id)
+        public ActionResult authenticate(string data, int id)
         {
             return View();
         }
