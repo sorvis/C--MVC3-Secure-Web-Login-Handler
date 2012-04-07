@@ -103,7 +103,7 @@ namespace Test.Web_Security_Backend_Login_Handler
         }
 
         [TestMethod()]
-        public void validateloginTest_should_return_false_when_SessionHolder_contains_same_values()
+        public void validateloginTest_should_return_false_when_SessionHolder_does_not_contain_same_values()
         {
             Session_Holder target = new Session_Holder();
             target.calulated_key = new Hashtable();
@@ -128,6 +128,21 @@ namespace Test.Web_Security_Backend_Login_Handler
             Hashtable login_attempt = new Hashtable();
             login_attempt.Add("a random thing", "anything");
             login_attempt.Add("sdf", "sdf");
+
+            bool expected = false;
+            bool actual;
+            actual = target.validate_login(login_attempt);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void validateloginTest_should_return_false_when_login_attempt_is_empty()
+        {
+            Session_Holder target = new Session_Holder();
+            target.calulated_key = new Hashtable();
+            target.calulated_key.Add("test", "test_value");
+
+            Hashtable login_attempt = new Hashtable();
 
             bool expected = false;
             bool actual;
