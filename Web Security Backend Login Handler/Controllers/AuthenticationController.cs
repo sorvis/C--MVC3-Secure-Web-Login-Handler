@@ -57,7 +57,16 @@ namespace Web_Security_Backend_Login_Handler.Controllers
             }
             db.expire_session(id);
             string decrypted_data = encryption_wrapper.decrypt_message(session.server_key.private_key, data);
-            Raw_Data_Builder data_dictionary = new Raw_Data_Builder(decrypted_data);
+            Raw_Data_Builder login_attempt = new Raw_Data_Builder(decrypted_data);
+
+            if (session.validate_login(login_attempt.Get_Login_Data))
+            {
+                // user login sucessful
+            }
+            else
+            {
+                // failed user login
+            }
 
             return View();
         }
