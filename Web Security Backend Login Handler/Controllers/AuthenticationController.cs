@@ -39,7 +39,7 @@ namespace Web_Security_Backend_Login_Handler.Controllers
             }
 
             Session_Holder session = new Session_Holder(db, remote_public_key);
-            db.store_initialize_data(session);
+            db.store_session(session);
             ViewBag.message = session.encrypted_message;
 
             return View();

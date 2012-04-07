@@ -33,7 +33,7 @@ namespace Web_Security_Backend_Login_Handler.Models
             throw new NotImplementedException();
         }
 
-        void IDataRepository.store_initialize_data(Session_Holder session)
+        void IDataRepository.store_session(Session_Holder session)
         {
             throw new NotImplementedException();
         }
