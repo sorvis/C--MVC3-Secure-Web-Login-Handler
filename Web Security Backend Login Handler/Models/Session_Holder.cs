@@ -35,6 +35,12 @@ namespace Web_Security_Backend_Login_Handler.Models
 
         public bool validate_login( Hashtable login_attempt)
         {
+            // fail automatically if there is no data to compare login attempt with
+            if (calulated_key.Count <= 0)
+            {
+                return false;
+            }
+
             foreach(DictionaryEntry item in calulated_key)
             {
                 if (login_attempt[item.Key] != item.Value)

@@ -72,6 +72,7 @@
     <Compile Include="data_generatorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Raw_Data_BuilderTest.cs" />
+    <Compile Include="Session_HolderTest.cs" />
     <Compile Include="Test_Database.cs" />
     <Compile Include="validate_keyTest.cs" />
   </ItemGroup>
