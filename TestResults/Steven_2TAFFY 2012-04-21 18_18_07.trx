@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="490769f7-f1a3-4020-b378-d8440ad1498f" name="Steven@2TAFFY 2012-04-21 18:18:07" runUser="2taffy\Steven" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="948a7d2c-a449-40cc-93d7-295f2060e854">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Steven_2TAFFY 2012-04-21 18_18_07">
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\bin\Web Security Backend Login Handler.dll" />
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-04-21T18:18:07.4150391-04:00" queuing="2012-04-21T18:18:08.2246094-04:00" start="2012-04-21T18:18:08.3046875-04:00" finish="2012-04-21T18:18:09.7285156-04:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="7" executed="7" passed="6" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="authenticateTest_should_launch_nuke_when_given_proper_login_data" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="4130b1bb-a456-1806-55a8-3f7e2e63d7a0">
+      <Execution id="935006cb-b466-46ac-bba9-f2b59acdb5ac" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.AuthenticationControllerTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="authenticateTest_should_launch_nuke_when_given_proper_login_data" />
+    </UnitTest>
+    <UnitTest name="initializeTest_when_given_bad_key_should_return_fake_data" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="9a17c7d1-5b24-127e-8a9a-1e236c20a42e">
+      <Execution id="59ef9a77-dfef-4d45-a87c-29975a47927c" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.AuthenticationControllerTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="initializeTest_when_given_bad_key_should_return_fake_data" />
+    </UnitTest>
+    <UnitTest name="initializeTest_when_given_good_key_should_return_real_data" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="a9bb2a96-fdf6-f082-afa7-d86f78b1f65e">
+      <Execution id="2e77232e-7003-4b2f-a4c8-0eb4fba4e52d" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.AuthenticationControllerTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="initializeTest_when_given_good_key_should_return_real_data" />
+    </UnitTest>
+    <UnitTest name="initializeTest_when_given_string_in_pubKey_should_return_fake_data" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="8b26d94c-54b1-f145-32dd-94c7292f6dc1">
+      <Execution id="c50ede04-d7ff-4353-9bf5-276739b18209" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.AuthenticationControllerTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="initializeTest_when_given_string_in_pubKey_should_return_fake_data" />
+    </UnitTest>
+    <UnitTest name="authenticateTest_should_fail_login_when_given_incorrect_login_data" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="456fe2e4-effc-7286-1bfa-b6cee2caa7e3">
+      <Execution id="0cf53cd0-1194-40ba-8ac2-a8a21293d4ac" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.AuthenticationControllerTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="authenticateTest_should_fail_login_when_given_incorrect_login_data" />
+    </UnitTest>
+    <UnitTest name="authenticateTest_should_fail_login_when_given_bad_session_id" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="2aac691f-68fa-51c4-f6b6-04c304918a9a">
+      <Execution id="98e74e78-98c5-4b55-a29c-72155c9f1749" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.AuthenticationControllerTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="authenticateTest_should_fail_login_when_given_bad_session_id" />
+    </UnitTest>
+    <UnitTest name="authenticateTest_should_expire_session_during_login_attempt" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="29405316-9966-0a8b-31c9-bcb4897049f4">
+      <Execution id="b3e126bc-bb5f-4767-8cdb-a0426e87898b" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.AuthenticationControllerTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="authenticateTest_should_expire_session_during_login_attempt" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="29405316-9966-0a8b-31c9-bcb4897049f4" executionId="b3e126bc-bb5f-4767-8cdb-a0426e87898b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2aac691f-68fa-51c4-f6b6-04c304918a9a" executionId="98e74e78-98c5-4b55-a29c-72155c9f1749" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4130b1bb-a456-1806-55a8-3f7e2e63d7a0" executionId="935006cb-b466-46ac-bba9-f2b59acdb5ac" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="456fe2e4-effc-7286-1bfa-b6cee2caa7e3" executionId="0cf53cd0-1194-40ba-8ac2-a8a21293d4ac" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8b26d94c-54b1-f145-32dd-94c7292f6dc1" executionId="c50ede04-d7ff-4353-9bf5-276739b18209" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9a17c7d1-5b24-127e-8a9a-1e236c20a42e" executionId="59ef9a77-dfef-4d45-a87c-29975a47927c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a9bb2a96-fdf6-f082-afa7-d86f78b1f65e" executionId="2e77232e-7003-4b2f-a4c8-0eb4fba4e52d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="b3e126bc-bb5f-4767-8cdb-a0426e87898b" testId="29405316-9966-0a8b-31c9-bcb4897049f4" testName="authenticateTest_should_expire_session_during_login_attempt" computerName="2TAFFY" duration="00:00:00.1566018" startTime="2012-04-21T18:18:08.3710937-04:00" endTime="2012-04-21T18:18:09.3125000-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b3e126bc-bb5f-4767-8cdb-a0426e87898b">
+    </UnitTestResult>
+    <UnitTestResult executionId="98e74e78-98c5-4b55-a29c-72155c9f1749" testId="2aac691f-68fa-51c4-f6b6-04c304918a9a" testName="authenticateTest_should_fail_login_when_given_bad_session_id" computerName="2TAFFY" duration="00:00:00.0548950" startTime="2012-04-21T18:18:09.3300781-04:00" endTime="2012-04-21T18:18:09.3935547-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="98e74e78-98c5-4b55-a29c-72155c9f1749">
+    </UnitTestResult>
+    <UnitTestResult executionId="935006cb-b466-46ac-bba9-f2b59acdb5ac" testId="4130b1bb-a456-1806-55a8-3f7e2e63d7a0" testName="authenticateTest_should_launch_nuke_when_given_proper_login_data" computerName="2TAFFY" duration="00:00:00.0063593" startTime="2012-04-21T18:18:09.4052734-04:00" endTime="2012-04-21T18:18:09.4267578-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="935006cb-b466-46ac-bba9-f2b59acdb5ac">
+    </UnitTestResult>
+    <UnitTestResult executionId="0cf53cd0-1194-40ba-8ac2-a8a21293d4ac" testId="456fe2e4-effc-7286-1bfa-b6cee2caa7e3" testName="authenticateTest_should_fail_login_when_given_incorrect_login_data" computerName="2TAFFY" duration="00:00:00.0188257" startTime="2012-04-21T18:18:09.4394531-04:00" endTime="2012-04-21T18:18:09.4658203-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0cf53cd0-1194-40ba-8ac2-a8a21293d4ac">
+    </UnitTestResult>
+    <UnitTestResult executionId="c50ede04-d7ff-4353-9bf5-276739b18209" testId="8b26d94c-54b1-f145-32dd-94c7292f6dc1" testName="initializeTest_when_given_string_in_pubKey_should_return_fake_data" computerName="2TAFFY" duration="00:00:00.0202849" startTime="2012-04-21T18:18:09.4794922-04:00" endTime="2012-04-21T18:18:09.5156250-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c50ede04-d7ff-4353-9bf5-276739b18209">
+    </UnitTestResult>
+    <UnitTestResult executionId="59ef9a77-dfef-4d45-a87c-29975a47927c" testId="9a17c7d1-5b24-127e-8a9a-1e236c20a42e" testName="initializeTest_when_given_bad_key_should_return_fake_data" computerName="2TAFFY" duration="00:00:00.0139266" startTime="2012-04-21T18:18:09.5703125-04:00" endTime="2012-04-21T18:18:09.5947266-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="59ef9a77-dfef-4d45-a87c-29975a47927c">
+    </UnitTestResult>
+    <UnitTestResult executionId="2e77232e-7003-4b2f-a4c8-0eb4fba4e52d" testId="a9bb2a96-fdf6-f082-afa7-d86f78b1f65e" testName="initializeTest_when_given_good_key_should_return_real_data" computerName="2TAFFY" duration="00:00:00.0541151" startTime="2012-04-21T18:18:09.6083984-04:00" endTime="2012-04-21T18:18:09.6718750-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2e77232e-7003-4b2f-a4c8-0eb4fba4e52d">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Test.Web_Security_Backend_Login_Handler.AuthenticationControllerTest.initializeTest_when_given_good_key_should_return_real_data threw exception: 
+System.ArgumentException: Item has already been added. Key in dictionary: 'Stage_1_color'  Key being added: 'Stage_1_color'</Message>
+          <StackTrace>    at System.Collections.Hashtable.Insert(Object key, Object nvalue, Boolean add)
+   at System.Collections.Hashtable.Add(Object key, Object value)
+   at Web_Security_Backend_Login_Handler.Models.data_generator.getString() in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\Models\data_generator.cs:line 31
+   at Web_Security_Backend_Login_Handler.Models.data_generator.get_random_data(IDataRepository db) in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\Models\data_generator.cs:line 41
+   at Web_Security_Backend_Login_Handler.Models.data_generator..ctor(IDataRepository db, Int32 key) in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\Models\data_generator.cs:line 22
+   at Web_Security_Backend_Login_Handler.Models.Session_Holder..ctor(IDataRepository db, UInt64 remote_key, UInt64 remote_shared_key) in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\Models\Session_Holder.cs:line 31
+   at Web_Security_Backend_Login_Handler.Controllers.AuthenticationController.initialize(String remote_public_key, UInt64 shared_key) in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\Controllers\AuthenticationController.cs:line 52
+   at Test.Web_Security_Backend_Login_Handler.AuthenticationControllerTest.initializeTest_when_given_good_key_should_return_real_data() in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Test.Web_Security_Backend_Login_Handler\AuthenticationControllerTest.cs:line 79
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

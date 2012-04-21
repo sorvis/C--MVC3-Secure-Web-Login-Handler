@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Web_Security_Backend_Login_Handler.Models;
+using System.Collections;
 
 namespace Test.Web_Security_Backend_Login_Handler
 {
     class Database_mock_up:IDataRepository
     {
-        private List<Session_Holder> _sessions = new List<Session_Holder>();
+        public List<Session_Holder> _sessions = new List<Session_Holder>();
         private List<data_failed_login_attempt> _attempts = new List<data_failed_login_attempt>();
         public bool _database_is_not_locked = true;
+
+        public int sessionID;
+        public Hashtable calculatedKey;
+        public string loginData;
 
         public Database_mock_up()
         {
             Session_Holder temp_session = new Session_Holder(this, 1234123435, 23412341234);
-            temp_session.id = 1234567;
-            temp_session.calulated_key = (new Raw_Data_Builder("page_1_text=secretPassword;page_1_button_3=true;")).Get_Login_Data;
-            temp_session.data = "image1=monkey.gif;color2=green;";
+            sessionID = temp_session.id;
+            calculatedKey = temp_session.calulated_key;
+            loginData = temp_session.data;
             _sessions.Add(temp_session);
         }
 

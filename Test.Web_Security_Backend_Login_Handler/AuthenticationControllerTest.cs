@@ -3,6 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
 using System.Web.Mvc;
+using System.Collections;
+using Web_Security_Backend_Login_Handler.Models;
 
 namespace Test.Web_Security_Backend_Login_Handler
 {
@@ -101,13 +103,23 @@ namespace Test.Web_Security_Backend_Login_Handler
             Assert.AreEqual("lasdflj2fjlwjefljawlj3", actual.ViewBag.message);
         }
 
+        private string make_Hashkey_to_string(Hashtable hash)
+        {
+            string keyString = string.Empty;
+            foreach (DictionaryEntry item in hash)
+            {
+                keyString+=item.Key+"="+item.Value+";";
+            }
+            return keyString;
+        }
 
         [TestMethod()]
         public void authenticateTest_should_launch_nuke_when_given_proper_login_data()
         {
-            AuthenticationController target = new AuthenticationController(new Database_mock_up());
-            string data = "pa2ge_19_text=secretPassword;page_1_button_3=true;";//data validation added to data
-            int id = 1234567; // from mock value in Database_mock_up
+            Database_mock_up db = new Database_mock_up();
+            AuthenticationController target = new AuthenticationController(db);
+            string data = validate_key.dirty_key(make_Hashkey_to_string(db.calculatedKey));
+            int id = db.sessionID;
             ViewResult actual = target.authenticate(data,id) as ViewResult;
             Assert.AreEqual(_good_login_message, actual.ViewBag.message);
         }
@@ -115,20 +127,33 @@ namespace Test.Web_Security_Backend_Login_Handler
         [TestMethod()]
         public void authenticateTest_should_expire_session_during_login_attempt()
         {
-            AuthenticationController_Accessor target = new AuthenticationController_Accessor(new Database_mock_up());
-            string data = "pa2ge_19_text=secretPassword;page_1_button_3=true;";//data validation added to data
-            int id = 1234567; // from mock value in Database_mock_up
+            Database_mock_up db = new Database_mock_up();
+            AuthenticationController_Accessor target = new AuthenticationController_Accessor(db);
+            string data = validate_key.dirty_key(make_Hashkey_to_string(db.calculatedKey));
+            int id = db.sessionID;
             Assert.IsFalse(((Database_mock_up)((AuthenticationController_Accessor)target)._db).is_session_expired(id));
             ViewResult actual = target.authenticate(data, id) as ViewResult;
             Assert.IsTrue(((Database_mock_up)((AuthenticationController_Accessor)target)._db).is_session_expired(id));
         }
 
+        private Hashtable seedHashWithBadValues(Hashtable hash)
+        {
+            Hashtable newHash = new Hashtable();
+            foreach (DictionaryEntry item in hash)
+            {
+                newHash[item.Key] = 4444444;
+            }
+            return newHash;
+        }
+
         [TestMethod()]
         public void authenticateTest_should_fail_login_when_given_incorrect_login_data()
         {
-            AuthenticationController target = new AuthenticationController(new Database_mock_up());
-            string data = "pa2ge_19_text=falsePassword;page_1_button_3=true;";//data validation added to data
-            int id = 1234567; // from mock value in Database_mock_up
+            Database_mock_up db = new Database_mock_up();
+            AuthenticationController target = new AuthenticationController(db);
+            db.calculatedKey = seedHashWithBadValues(db.calculatedKey);
+            string data = validate_key.dirty_key(make_Hashkey_to_string(db.calculatedKey));
+            int id = db.sessionID;
             ViewResult actual = target.authenticate(data, id) as ViewResult;
             Assert.AreEqual(_bad_login_message, actual.ViewBag.message);
         }
@@ -136,8 +161,9 @@ namespace Test.Web_Security_Backend_Login_Handler
         [TestMethod()]
         public void authenticateTest_should_fail_login_when_given_bad_session_id()
         {
-            AuthenticationController target = new AuthenticationController(new Database_mock_up());
-            string data = "pa2ge_19_text=secretPassword;page_1_button_3=true;";//data validation added to data
+            Database_mock_up db = new Database_mock_up();
+            AuthenticationController target = new AuthenticationController(db);
+            string data = validate_key.dirty_key(make_Hashkey_to_string(db.calculatedKey));
             int id = 111111;
             ViewResult actual = target.authenticate(data, id) as ViewResult;
             Assert.AreEqual(_bad_login_message, actual.ViewBag.message);

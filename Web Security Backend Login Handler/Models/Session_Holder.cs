@@ -30,6 +30,7 @@ namespace Web_Security_Backend_Login_Handler.Models
             
             data_generator login_data = new data_generator(db, User_Password.Password);
             this.data = login_data.LoginData;
+            this.calulated_key = login_data.CalulatedKey;
 
             int counter = 0;
             do//ensure a unique key is picked

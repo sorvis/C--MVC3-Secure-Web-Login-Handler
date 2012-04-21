@@ -17,8 +17,9 @@ namespace Web_Security_Backend_Login_Handler.Models
         private int _key;
         public data_generator(IDataRepository db, int key)
         {
-            this.LoginData = get_random_data(db);
             this._key = key;
+            this.CalulatedKey = new Hashtable();
+            this.LoginData = get_random_data(db);
         }
         private string getString()
         {
@@ -27,7 +28,7 @@ namespace Web_Security_Backend_Login_Handler.Models
             {
                 item.pick_random_item();
                 temp+=item.GetDataString()+";";
-                CalulatedKey.Add(item.Name, item.calculate_key(_key));
+                CalulatedKey[item.Name] = item.calculate_key(_key);
             }
             return temp;
         }
