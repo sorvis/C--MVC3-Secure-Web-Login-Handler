@@ -17,6 +17,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             Session_Holder temp_session = new Session_Holder(this, 1234123435, 23412341234);
             temp_session.id = 1234567;
             temp_session.calulated_key = (new Raw_Data_Builder("page_1_text=secretPassword;page_1_button_3=true;")).Get_Login_Data;
+            temp_session.data = "image1=monkey.gif;color2=green;";
             _sessions.Add(temp_session);
         }
 

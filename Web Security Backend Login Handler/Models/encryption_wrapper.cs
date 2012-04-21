@@ -24,7 +24,9 @@ namespace Web_Security_Backend_Login_Handler.Models
         }
         public static Server_keys get_keys()
         {
-            return new Server_keys();
+            // should be using scotts key generator
+            Random rand = new Random();
+            return new Server_keys((UInt64)rand.Next(100), (UInt64)rand.Next(100), (UInt64)rand.Next(100));
         }
     }
 }

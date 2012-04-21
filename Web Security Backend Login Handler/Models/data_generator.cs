@@ -3,22 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Web_Security_Backend_Login_Handler.Models.Display_Data;
+using System.Collections;
 
 namespace Web_Security_Backend_Login_Handler.Models
 {
-    public static class data_generator
+    public class data_generator
     {
-        private static List<IData> _data= new List<IData>{new Picture1(), new Stage_1_picture()};
-        private static string getString()
+        private static List<string> colors = new List<string>{"Red", "Orange", "Yellow","Green", "Blue","Indigo"};
+        private static List<IData> _data= new List<IData>{new Generic_data("Stage_1_color",colors)};
+
+        public string LoginData { get; set; }
+        public Hashtable CalulatedKey { get; set; }
+        private int _key;
+        public data_generator(IDataRepository db, int key)
+        {
+            this.LoginData = get_random_data(db);
+            this._key = key;
+        }
+        private string getString()
         {
             string temp="";
             foreach(IData item in _data)
             {
-                temp+=item.ToString()+";";
+                item.pick_random_item();
+                temp+=item.GetDataString()+";";
+                CalulatedKey.Add(item.Name, item.calculate_key(_key));
             }
             return temp;
         }
-        public static string get_random_data(IDataRepository db)
+        private string get_random_data(IDataRepository db)
         {
             string random_data = getString();
             int i = 0;

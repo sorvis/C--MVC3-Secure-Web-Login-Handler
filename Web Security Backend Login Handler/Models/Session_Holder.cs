@@ -27,7 +27,9 @@ namespace Web_Security_Backend_Login_Handler.Models
         public Session_Holder(IDataRepository db, ulong remote_key, ulong remote_shared_key)
          {
             this.id = session_id_generator.make_random_id(db);
-            this.data = data_generator.get_random_data(db);
+            
+            data_generator login_data = new data_generator(db, User_Password.Password);
+            this.data = login_data.LoginData;
 
             int counter = 0;
             do//ensure a unique key is picked
