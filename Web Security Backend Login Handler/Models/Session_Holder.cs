@@ -45,7 +45,7 @@ namespace Web_Security_Backend_Login_Handler.Models
 
             foreach(DictionaryEntry item in calulated_key)
             {
-                if (login_attempt[item.Key] != item.Value)
+                if ((string)login_attempt[item.Key] != (string)item.Value.ToString())
                 {
                     return false;
                 }

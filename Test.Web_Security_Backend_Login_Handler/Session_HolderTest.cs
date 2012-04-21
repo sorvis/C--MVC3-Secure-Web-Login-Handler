@@ -67,11 +67,12 @@ namespace Test.Web_Security_Backend_Login_Handler
 
 
         [TestMethod()]
-        public void validateloginTest_should_return_true_when_SessionHolder_contains_at_least_one_same_element()
+        public void validateloginTest_should_return_true_when_SessionHolder_contains_alls_same_element_dispite_extra_passed_in_elements()
         {
             Session_Holder target = new Session_Holder();
             target.calulated_key = new Hashtable();
             target.calulated_key.Add("test", "test_value");
+            target.calulated_key.Add("a random thing", "anything");
 
             Hashtable login_attempt = new Hashtable();
             login_attempt.Add("a random thing", "anything");
@@ -145,6 +146,21 @@ namespace Test.Web_Security_Backend_Login_Handler
             Hashtable login_attempt = new Hashtable();
 
             bool expected = false;
+            bool actual;
+            actual = target.validate_login(login_attempt);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void validateloginTest_should_return_true_when_login_attempt_from_different_hash_objects()
+        {
+            Session_Holder target = new Session_Holder();
+            string data = "pa2ge_19_text=secretPassword;page_1_button_3=true;";
+            target.calulated_key = (new Raw_Data_Builder(data)).Get_Login_Data;
+
+            Hashtable login_attempt = (new Raw_Data_Builder(data)).Get_Login_Data;
+
+            bool expected = true;
             bool actual;
             actual = target.validate_login(login_attempt);
             Assert.AreEqual(expected, actual);

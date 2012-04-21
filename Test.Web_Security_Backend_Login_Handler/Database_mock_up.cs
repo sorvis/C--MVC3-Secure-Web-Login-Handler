@@ -14,7 +14,10 @@ namespace Test.Web_Security_Backend_Login_Handler
 
         public Database_mock_up()
         {
-            _sessions.Add(new Session_Holder(this, 1234123435, 23412341234));
+            Session_Holder temp_session = new Session_Holder(this, 1234123435, 23412341234);
+            temp_session.id = 1234567;
+            temp_session.calulated_key = (new Raw_Data_Builder("page_1_text=secretPassword;page_1_button_3=true;")).Get_Login_Data;
+            _sessions.Add(temp_session);
         }
 
         public bool check_for_unique_pub_key(string key)
@@ -70,12 +73,23 @@ namespace Test.Web_Security_Backend_Login_Handler
 
         public Session_Holder get_session(int id)
         {
-            throw new NotImplementedException();
+            Session_Holder tempSession = null;
+            tempSession = _sessions.Find(
+                delegate(Session_Holder session)
+                {
+                    return session.id==id;
+                });
+            return tempSession;
         }
 
         public void expire_session(int id)
         {
-            throw new NotImplementedException();
+            get_session(id).expired = true;
+        }
+
+        public bool is_session_expired(int id)
+        {
+            return get_session(id).expired;
         }
     }
 }

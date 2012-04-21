@@ -65,23 +65,23 @@ namespace Test.Web_Security_Backend_Login_Handler
         #endregion
 
 
-        [TestMethod()]
-        public void get_random_dataTest()
-        {
-            IDataRepository db = new Test_Database();
-            string expected = "Picture1=icon.gif;";
-            string actual;
-            actual = data_generator.get_random_data(db);
-            Assert.AreEqual(expected, actual);
-        }
+        //[TestMethod()]
+        //public void get_random_dataTest()
+        //{
+        //    IDataRepository db = new Test_Database();
+        //    string expected = "Picture1=icon.gif;";
+        //    string actual;
+        //    actual = data_generator.get_random_data(db);
+        //    Assert.AreEqual(expected, actual);
+        //}
 
-        [TestMethod()]
-        public void getStringTest()
-        {
-            string expected = "Picture1=icon.gif;";
-            string actual;
-            actual = data_generator_Accessor.getString();
-            Assert.AreEqual(expected, actual);
-        }
+        //[TestMethod()]
+        //public void getStringTest()
+        //{
+        //    string expected = "Picture1=icon.gif;";
+        //    string actual;
+        //    actual = data_generator_Accessor.getString();
+        //    Assert.AreEqual(expected, actual);
+        //}
     }
 }

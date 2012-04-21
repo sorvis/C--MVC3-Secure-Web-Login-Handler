@@ -64,6 +64,7 @@ namespace Web_Security_Backend_Login_Handler.Controllers
             Session_Holder session = _db.get_session(id);
             if (session == null || session.expired || !validate_key.validate(data))
             {
+                ViewBag.message = "Failed login";
                 return View();
             }
 
@@ -74,11 +75,11 @@ namespace Web_Security_Backend_Login_Handler.Controllers
 
             if (session.validate_login(login_attempt.Get_Login_Data))
             {
-                // user login sucessful
+                ViewBag.message = "Nuclear missle set to launch. Targeted impact point is: 40.771950, -80.321137 Estimated time of impact: 5 minutes radius of effect 5-miles.";
             }
             else
             {
-                // failed user login
+                ViewBag.message = "Failed login";
             }
 
             return View();

@@ -65,6 +65,8 @@ namespace Test.Web_Security_Backend_Login_Handler
         //
         #endregion
 
+        private string _good_login_message = "Nuclear missle set to launch. Targeted impact point is: 40.771950, -80.321137 Estimated time of impact: 5 minutes radius of effect 5-miles.";
+        private string _bad_login_message = "Failed login";
 
         [TestMethod()]
         public void initializeTest_when_given_good_key_should_return_real_data()
@@ -101,16 +103,44 @@ namespace Test.Web_Security_Backend_Login_Handler
 
 
         [TestMethod()]
-        public void authenticateTest()
+        public void authenticateTest_should_launch_nuke_when_given_proper_login_data()
         {
-            AuthenticationController target = new AuthenticationController(); // TODO: Initialize to an appropriate value
-            string data = string.Empty; // TODO: Initialize to an appropriate value
-            int id = 0; // TODO: Initialize to an appropriate value
-            ActionResult expected = null; // TODO: Initialize to an appropriate value
-            ActionResult actual;
-            actual = target.authenticate(data, id);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            AuthenticationController target = new AuthenticationController(new Database_mock_up());
+            string data = "pa2ge_19_text=secretPassword;page_1_button_3=true;";//data validation added to data
+            int id = 1234567; // from mock value in Database_mock_up
+            ViewResult actual = target.authenticate(data,id) as ViewResult;
+            Assert.AreEqual(_good_login_message, actual.ViewBag.message);
+        }
+
+        [TestMethod()]
+        public void authenticateTest_should_expire_session_during_login_attempt()
+        {
+            AuthenticationController_Accessor target = new AuthenticationController_Accessor(new Database_mock_up());
+            string data = "pa2ge_19_text=secretPassword;page_1_button_3=true;";//data validation added to data
+            int id = 1234567; // from mock value in Database_mock_up
+            Assert.IsFalse(((Database_mock_up)((AuthenticationController_Accessor)target)._db).is_session_expired(id));
+            ViewResult actual = target.authenticate(data, id) as ViewResult;
+            Assert.IsTrue(((Database_mock_up)((AuthenticationController_Accessor)target)._db).is_session_expired(id));
+        }
+
+        [TestMethod()]
+        public void authenticateTest_should_fail_login_when_given_incorrect_login_data()
+        {
+            AuthenticationController target = new AuthenticationController(new Database_mock_up());
+            string data = "pa2ge_19_text=falsePassword;page_1_button_3=true;";//data validation added to data
+            int id = 1234567; // from mock value in Database_mock_up
+            ViewResult actual = target.authenticate(data, id) as ViewResult;
+            Assert.AreEqual(_bad_login_message, actual.ViewBag.message);
+        }
+
+        [TestMethod()]
+        public void authenticateTest_should_fail_login_when_given_bad_session_id()
+        {
+            AuthenticationController target = new AuthenticationController(new Database_mock_up());
+            string data = "pa2ge_19_text=secretPassword;page_1_button_3=true;";//data validation added to data
+            int id = 111111;
+            ViewResult actual = target.authenticate(data, id) as ViewResult;
+            Assert.AreEqual(_bad_login_message, actual.ViewBag.message);
         }
     }
 }
