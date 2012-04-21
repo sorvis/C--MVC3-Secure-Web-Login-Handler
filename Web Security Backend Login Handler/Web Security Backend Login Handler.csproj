@@ -74,6 +74,7 @@
     <Compile Include="Models\Display_Data\IData.cs" />
     <Compile Include="Models\Display_Data\Picture1.cs" />
     <Compile Include="Models\Display_Data\Stage_1_picture.cs" />
+    <Compile Include="Models\EF_Login_Data_Repository.cs" />
     <Compile Include="Models\encryption_wrapper.cs" />
     <Compile Include="Models\IDataRepository.cs" />
     <Compile Include="Models\Raw_Data_Builder.cs" />
