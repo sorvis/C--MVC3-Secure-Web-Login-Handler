@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="e64666da-bc9b-4641-8f4d-011767b23855" name="Steven@2TAFFY 2012-04-20 10:53:56" runUser="2taffy\Steven" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="948a7d2c-a449-40cc-93d7-295f2060e854">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Steven_2TAFFY 2012-04-20 10_53_56">
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\bin\Web Security Backend Login Handler.dll" />
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-04-20T10:53:56.2460937-04:00" queuing="2012-04-20T10:53:56.3378906-04:00" start="2012-04-20T10:53:56.3847656-04:00" finish="2012-04-20T10:53:57.2421875-04:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="11" executed="11" passed="9" error="0" failed="2" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="dirty_keyTest" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="fec82914-8d2b-ce0e-0f68-141c8e76da6f">
+      <Execution id="0f31d3e6-7d43-4b34-8536-70061058195f" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.validate_keyTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="dirty_keyTest" />
+    </UnitTest>
+    <UnitTest name="validateloginTest_should_return_false_when_login_attempt_is_empty" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="3a663574-3180-85f1-cdde-1030a0ef32ad">
+      <Execution id="cb86ebf4-3d8e-48f9-9d82-6c7a687ed50e" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.Session_HolderTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="validateloginTest_should_return_false_when_login_attempt_is_empty" />
+    </UnitTest>
+    <UnitTest name="clean_keyTest" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="972b6f7c-0580-faff-8ab3-18e7fe4dd471">
+      <Execution id="ed357045-eb3b-4c92-abaf-b24469a02d16" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.validate_keyTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="clean_keyTest" />
+    </UnitTest>
+    <UnitTest name="validateloginTest_should_return_false_when_SessionHolder_contains_no_values" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="7ec82646-bfa5-fc5d-43af-a673eb439cf8">
+      <Execution id="d79ea3cb-2557-41ef-a124-4318292d181f" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.Session_HolderTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="validateloginTest_should_return_false_when_SessionHolder_contains_no_values" />
+    </UnitTest>
+    <UnitTest name="validateloginTest_should_return_false_when_SessionHolder_contains_same_key_but_different_value" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="c0f680fd-63b7-0fd0-2fe9-268095203a3f">
+      <Execution id="3cb83bc6-a246-4aa5-9243-8e007134d512" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.Session_HolderTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="validateloginTest_should_return_false_when_SessionHolder_contains_same_key_but_different_value" />
+    </UnitTest>
+    <UnitTest name="validateloginTest_should_return_false_when_SessionHolder_does_not_contain_same_values" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="4897a04b-2374-7309-30e3-a76570127718">
+      <Execution id="f0b9d1dc-e591-4871-966a-fc6d26d1eacb" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.Session_HolderTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="validateloginTest_should_return_false_when_SessionHolder_does_not_contain_same_values" />
+    </UnitTest>
+    <UnitTest name="getStringTest" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="e089eca8-ed0b-1a67-af14-18528148e57d">
+      <Execution id="32d040e8-52ca-4876-aeed-d8fb8d2090fe" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.data_generatorTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getStringTest" />
+    </UnitTest>
+    <UnitTest name="get_random_dataTest" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="446f88b2-d616-fc3f-dc21-8e30dbcbad57">
+      <Execution id="ac6a346a-a8cc-4247-b51e-24c283ee5334" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.data_generatorTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="get_random_dataTest" />
+    </UnitTest>
+    <UnitTest name="validateTest" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="b8b91aae-b377-e572-aa09-5986400c100d">
+      <Execution id="5b31b452-e975-4b0c-8b24-d5aafd18d994" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.validate_keyTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="validateTest" />
+    </UnitTest>
+    <UnitTest name="validateloginTest_should_return_true_when_SessionHolder_contains_at_least_one_same_element" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="840641d1-a34d-6fcd-0f3a-9ca8ee8a9c07">
+      <Execution id="ec4501c0-0e81-4965-92fb-3689f5bc8371" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.Session_HolderTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="validateloginTest_should_return_true_when_SessionHolder_contains_at_least_one_same_element" />
+    </UnitTest>
+    <UnitTest name="Raw_Data_BuilderConstructorTest" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="9f02821a-fcc4-04ab-16ff-bb8c74969c39">
+      <Execution id="eb52f698-e584-430f-bd1e-096475973e2e" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.Raw_Data_BuilderTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Raw_Data_BuilderConstructorTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="3a663574-3180-85f1-cdde-1030a0ef32ad" executionId="cb86ebf4-3d8e-48f9-9d82-6c7a687ed50e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="446f88b2-d616-fc3f-dc21-8e30dbcbad57" executionId="ac6a346a-a8cc-4247-b51e-24c283ee5334" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4897a04b-2374-7309-30e3-a76570127718" executionId="f0b9d1dc-e591-4871-966a-fc6d26d1eacb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7ec82646-bfa5-fc5d-43af-a673eb439cf8" executionId="d79ea3cb-2557-41ef-a124-4318292d181f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="840641d1-a34d-6fcd-0f3a-9ca8ee8a9c07" executionId="ec4501c0-0e81-4965-92fb-3689f5bc8371" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="972b6f7c-0580-faff-8ab3-18e7fe4dd471" executionId="ed357045-eb3b-4c92-abaf-b24469a02d16" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9f02821a-fcc4-04ab-16ff-bb8c74969c39" executionId="eb52f698-e584-430f-bd1e-096475973e2e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b8b91aae-b377-e572-aa09-5986400c100d" executionId="5b31b452-e975-4b0c-8b24-d5aafd18d994" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c0f680fd-63b7-0fd0-2fe9-268095203a3f" executionId="3cb83bc6-a246-4aa5-9243-8e007134d512" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e089eca8-ed0b-1a67-af14-18528148e57d" executionId="32d040e8-52ca-4876-aeed-d8fb8d2090fe" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fec82914-8d2b-ce0e-0f68-141c8e76da6f" executionId="0f31d3e6-7d43-4b34-8536-70061058195f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="cb86ebf4-3d8e-48f9-9d82-6c7a687ed50e" testId="3a663574-3180-85f1-cdde-1030a0ef32ad" testName="validateloginTest_should_return_false_when_login_attempt_is_empty" computerName="2TAFFY" duration="00:00:00.0277981" startTime="2012-04-20T10:53:56.3974609-04:00" endTime="2012-04-20T10:53:56.8535156-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cb86ebf4-3d8e-48f9-9d82-6c7a687ed50e">
+    </UnitTestResult>
+    <UnitTestResult executionId="ac6a346a-a8cc-4247-b51e-24c283ee5334" testId="446f88b2-d616-fc3f-dc21-8e30dbcbad57" testName="get_random_dataTest" computerName="2TAFFY" duration="00:00:00.0477046" startTime="2012-04-20T10:53:56.8623047-04:00" endTime="2012-04-20T10:53:56.9296875-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ac6a346a-a8cc-4247-b51e-24c283ee5334">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;Picture1=icon.gif;&gt;. Actual:&lt;Picture1=icon.gif;Stage_1_Pic=5;&gt;. </Message>
+          <StackTrace>   at Test.Web_Security_Backend_Login_Handler.data_generatorTest.get_random_dataTest() in c:\users\steven\documents\visual studio 2010\Projects\Web Security Backend Login Handler\Test.Web_Security_Backend_Login_Handler\data_generatorTest.cs:line 75
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f0b9d1dc-e591-4871-966a-fc6d26d1eacb" testId="4897a04b-2374-7309-30e3-a76570127718" testName="validateloginTest_should_return_false_when_SessionHolder_does_not_contain_same_values" computerName="2TAFFY" duration="00:00:00.0138732" startTime="2012-04-20T10:53:56.9394531-04:00" endTime="2012-04-20T10:53:56.9707031-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f0b9d1dc-e591-4871-966a-fc6d26d1eacb">
+    </UnitTestResult>
+    <UnitTestResult executionId="d79ea3cb-2557-41ef-a124-4318292d181f" testId="7ec82646-bfa5-fc5d-43af-a673eb439cf8" testName="validateloginTest_should_return_false_when_SessionHolder_contains_no_values" computerName="2TAFFY" duration="00:00:00.0144322" startTime="2012-04-20T10:53:56.9775391-04:00" endTime="2012-04-20T10:53:57.0087891-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d79ea3cb-2557-41ef-a124-4318292d181f">
+    </UnitTestResult>
+    <UnitTestResult executionId="ec4501c0-0e81-4965-92fb-3689f5bc8371" testId="840641d1-a34d-6fcd-0f3a-9ca8ee8a9c07" testName="validateloginTest_should_return_true_when_SessionHolder_contains_at_least_one_same_element" computerName="2TAFFY" duration="00:00:00.0086041" startTime="2012-04-20T10:53:57.0156250-04:00" endTime="2012-04-20T10:53:57.0439453-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ec4501c0-0e81-4965-92fb-3689f5bc8371">
+    </UnitTestResult>
+    <UnitTestResult executionId="ed357045-eb3b-4c92-abaf-b24469a02d16" testId="972b6f7c-0580-faff-8ab3-18e7fe4dd471" testName="clean_keyTest" computerName="2TAFFY" duration="00:00:00.0012397" startTime="2012-04-20T10:53:57.0537109-04:00" endTime="2012-04-20T10:53:57.0654297-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ed357045-eb3b-4c92-abaf-b24469a02d16">
+    </UnitTestResult>
+    <UnitTestResult executionId="eb52f698-e584-430f-bd1e-096475973e2e" testId="9f02821a-fcc4-04ab-16ff-bb8c74969c39" testName="Raw_Data_BuilderConstructorTest" computerName="2TAFFY" duration="00:00:00.0096344" startTime="2012-04-20T10:53:57.0732422-04:00" endTime="2012-04-20T10:53:57.0957031-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eb52f698-e584-430f-bd1e-096475973e2e">
+    </UnitTestResult>
+    <UnitTestResult executionId="5b31b452-e975-4b0c-8b24-d5aafd18d994" testId="b8b91aae-b377-e572-aa09-5986400c100d" testName="validateTest" computerName="2TAFFY" duration="00:00:00.0015666" startTime="2012-04-20T10:53:57.1318359-04:00" endTime="2012-04-20T10:53:57.1464844-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5b31b452-e975-4b0c-8b24-d5aafd18d994">
+    </UnitTestResult>
+    <UnitTestResult executionId="3cb83bc6-a246-4aa5-9243-8e007134d512" testId="c0f680fd-63b7-0fd0-2fe9-268095203a3f" testName="validateloginTest_should_return_false_when_SessionHolder_contains_same_key_but_different_value" computerName="2TAFFY" duration="00:00:00.0006420" startTime="2012-04-20T10:53:57.1533203-04:00" endTime="2012-04-20T10:53:57.1650391-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3cb83bc6-a246-4aa5-9243-8e007134d512">
+    </UnitTestResult>
+    <UnitTestResult executionId="32d040e8-52ca-4876-aeed-d8fb8d2090fe" testId="e089eca8-ed0b-1a67-af14-18528148e57d" testName="getStringTest" computerName="2TAFFY" duration="00:00:00.0040691" startTime="2012-04-20T10:53:57.1708984-04:00" endTime="2012-04-20T10:53:57.1865234-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="32d040e8-52ca-4876-aeed-d8fb8d2090fe">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;Picture1=icon.gif;&gt;. Actual:&lt;Picture1=icon.gif;Stage_1_Pic=4;&gt;. </Message>
+          <StackTrace>   at Test.Web_Security_Backend_Login_Handler.data_generatorTest.getStringTest() in c:\users\steven\documents\visual studio 2010\Projects\Web Security Backend Login Handler\Test.Web_Security_Backend_Login_Handler\data_generatorTest.cs:line 84
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0f31d3e6-7d43-4b34-8536-70061058195f" testId="fec82914-8d2b-ce0e-0f68-141c8e76da6f" testName="dirty_keyTest" computerName="2TAFFY" duration="00:00:00.0007955" startTime="2012-04-20T10:53:57.1992187-04:00" endTime="2012-04-20T10:53:57.2070312-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0f31d3e6-7d43-4b34-8536-70061058195f">
+    </UnitTestResult>
+  </Results>
+</TestRun>

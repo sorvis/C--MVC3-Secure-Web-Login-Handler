@@ -9,7 +9,16 @@ namespace Web_Security_Backend_Login_Handler.Controllers
 {
     public class AuthenticationController : Controller
     {
-        private IDataRepository db = new DataEntities();
+        private IDataRepository _db;
+
+        public AuthenticationController()
+        {
+            _db = new DataEntities();
+        }
+        public AuthenticationController(IDataRepository db)
+        {
+            _db = db;
+        }
 
         //
         // GET: /Authentication/
@@ -20,43 +29,47 @@ namespace Web_Security_Backend_Login_Handler.Controllers
         //}
 
         //
-        // GET: /Authentication/initialize?key=fdlkgjlfjasf&
+        // GET: /authentication/initialize?remote_public_key=43235359345345345&shared_key=4325465423452345&
 
-        public ActionResult initialize(string remote_public_key)
+        public ActionResult initialize(string remote_public_key, ulong shared_key)
         {
-
+            string cleaned_pub_key = validate_key.clean_key(remote_public_key);
+            ulong ulong_remote_pub_key;
             if (validate_key.validate(remote_public_key) &&
-                db.check_for_unique_key(remote_public_key)&&
-                db.check_that_initialize_is_not_locked())
+                UInt64.TryParse(cleaned_pub_key, out ulong_remote_pub_key)&&
+                _db.check_for_unique_pub_key(cleaned_pub_key) &&
+                _db.check_that_initialize_is_not_locked())
             {
-                remote_public_key = validate_key.clean_key(remote_public_key);
+                // incoming data seems to be good
             }
             else//somone tried passing in a bad key
             {
-                db.store_failed_initialize_attempt(remote_public_key);
+                _db.store_failed_initialize_attempt(remote_public_key, shared_key);
                 ViewBag.message = "lasdflj2fjlwjefljawlj3";
                 return View();
             }
 
-            Session_Holder session = new Session_Holder(db, remote_public_key);
-            db.store_session(session);
+            Session_Holder session = new Session_Holder(_db, ulong_remote_pub_key, shared_key);
+            _db.store_session(session);
             ViewBag.message = session.encrypted_message;
 
             return View();
         }
 
         //
-        // GET: /Authentication/authenticate?data=fdlkgjlfjasf&id=2354
+        // GET: /Authentication/authenticate?data=Picture1=icon.gif;Stage_1_Pic=5;&id=1983929640
 
         public ActionResult authenticate(string data, int id)
         {
-            Session_Holder session = db.get_session(id);
+            Session_Holder session = _db.get_session(id);
             if (session == null || session.expired || !validate_key.validate(data))
             {
                 return View();
             }
-            db.expire_session(id);
-            string decrypted_data = encryption_wrapper.decrypt_message(session.server_key.private_key, data);
+
+            data = validate_key.clean_key(data);
+            _db.expire_session(id);
+            string decrypted_data = encryption_wrapper.decrypt_message(session.server_key.private_key, session.remote_shared_key, data);
             Raw_Data_Builder login_attempt = new Raw_Data_Builder(decrypted_data);
 
             if (session.validate_login(login_attempt.Get_Login_Data))

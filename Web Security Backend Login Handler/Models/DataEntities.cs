@@ -7,43 +7,43 @@ namespace Web_Security_Backend_Login_Handler.Models
 {
     public class DataEntities:IDataRepository
     {
-        bool IDataRepository.check_for_unique_key(string key)
+
+        public bool check_for_unique_pub_key(string key)
+        {
+            return true;
+        }
+
+        public bool check_for_unique_session_id(int id)
+        {
+            return true;
+        }
+
+        public bool check_for_unique_data_string(string data)
+        {
+            return true;
+        }
+
+        public bool check_that_initialize_is_not_locked()
+        {
+            return true;
+        }
+
+        public void store_failed_initialize_attempt(string public_key, ulong shared_key)
         {
             throw new NotImplementedException();
         }
 
-        bool IDataRepository.check_for_unique_session_id(int id)
+        public void store_session(Session_Holder session)
+        {
+
+        }
+
+        public Session_Holder get_session(int id)
         {
             throw new NotImplementedException();
         }
 
-        bool IDataRepository.check_for_unique_data_string(string data)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        bool IDataRepository.check_that_initialize_is_not_locked()
-        {
-            throw new NotImplementedException();
-        }
-
-        void IDataRepository.store_failed_initialize_attempt(string key)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IDataRepository.store_session(Session_Holder session)
-        {
-            throw new NotImplementedException();
-        }
-
-        Session_Holder IDataRepository.get_session(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IDataRepository.expire_session(int id)
+        public void expire_session(int id)
         {
             throw new NotImplementedException();
         }

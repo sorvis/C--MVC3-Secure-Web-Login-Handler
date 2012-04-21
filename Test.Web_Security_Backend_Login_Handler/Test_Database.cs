@@ -8,7 +8,8 @@ namespace Test.Web_Security_Backend_Login_Handler
 {
     class Test_Database:IDataRepository
     {
-        public bool check_for_unique_key(string key)
+
+        public bool check_for_unique_pub_key(string key)
         {
             throw new NotImplementedException();
         }
@@ -20,45 +21,30 @@ namespace Test.Web_Security_Backend_Login_Handler
 
         public bool check_for_unique_data_string(string data)
         {
-            return true;
+            throw new NotImplementedException();
         }
 
-        bool IDataRepository.check_for_unique_key(string key)
+        public bool check_that_initialize_is_not_locked()
         {
             throw new NotImplementedException();
         }
 
-        bool IDataRepository.check_for_unique_session_id(int id)
+        public void store_failed_initialize_attempt(string public_key, ulong shared_key)
         {
             throw new NotImplementedException();
         }
 
-        bool IDataRepository.check_for_unique_data_string(string data)
-        {
-            return true;
-        }
-
-        bool IDataRepository.check_that_initialize_is_not_locked()
+        public void store_session(Session_Holder session)
         {
             throw new NotImplementedException();
         }
 
-        void IDataRepository.store_failed_initialize_attempt(string key)
+        public Session_Holder get_session(int id)
         {
             throw new NotImplementedException();
         }
 
-        void IDataRepository.store_session(Session_Holder session)
-        {
-            throw new NotImplementedException();
-        }
-
-        Session_Holder IDataRepository.get_session(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IDataRepository.expire_session(int id)
+        public void expire_session(int id)
         {
             throw new NotImplementedException();
         }

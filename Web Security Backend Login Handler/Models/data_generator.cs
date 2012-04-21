@@ -8,7 +8,7 @@ namespace Web_Security_Backend_Login_Handler.Models
 {
     public static class data_generator
     {
-        private static List<IData> _data= new List<IData>{new Picture1()};
+        private static List<IData> _data= new List<IData>{new Picture1(), new Stage_1_picture()};
         private static string getString()
         {
             string temp="";

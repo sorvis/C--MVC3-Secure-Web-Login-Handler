@@ -11,9 +11,14 @@ namespace Web_Security_Backend_Login_Handler.Models
 
         public static string encrpty_message(string public_key, string message)
         {
+            long long_pub_key = Int64.Parse(public_key);
             return message;
         }
-        public static string decrypt_message(string private_key, string message)
+        public static string decrypt_message(string private_key, ulong remote_shared_key, string message)
+        {
+            return decrypt_message(UInt64.Parse(private_key), remote_shared_key, message);
+        }
+        public static string decrypt_message(ulong private_key, ulong remote_shared_key, string message)
         {
             return message;
         }
