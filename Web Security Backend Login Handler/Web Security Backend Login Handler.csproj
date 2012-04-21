@@ -68,7 +68,7 @@
     </Compile>
     <Compile Include="Models\DataEntities.cs" />
     <Compile Include="Models\data_failed_login_attempt.cs" />
-    <Compile Include="Models\data_generator.cs" />
+    <Compile Include="Models\Display_Data\data_generator.cs" />
     <Compile Include="Models\Display_Data\DataChooser.cs" />
     <Compile Include="Models\Display_Data\Generic_data.cs" />
     <Compile Include="Models\Display_Data\IData.cs" />

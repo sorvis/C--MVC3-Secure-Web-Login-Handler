@@ -13,7 +13,7 @@ namespace Web_Security_Backend_Login_Handler.Controllers
 
         public AuthenticationController()
         {
-            _db = new DataEntities();
+            _db = new EF_Login_Data_Repository();
         }
         public AuthenticationController(IDataRepository db)
         {
