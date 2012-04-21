@@ -28,7 +28,15 @@ namespace Web_Security_Backend_Login_Handler.Models
          {
             this.id = session_id_generator.make_random_id(db);
             this.data = data_generator.get_random_data(db);
-            this.server_key = encryption_wrapper.get_keys();
+
+            int counter = 0;
+            do//ensure a unique key is picked
+            {
+                this.server_key = encryption_wrapper.get_keys();
+                counter++;
+            }
+            while (!db.check_for_unique_pub_key(this.server_key.public_key)||counter >100);
+
             this.remote_pub_key = remote_key;
             this.remote_shared_key = remote_shared_key;
             this.encrypted_message = encryption_wrapper.encrpty_message(Convert.ToString(remote_key),

@@ -7,25 +7,24 @@ namespace Web_Security_Backend_Login_Handler.Models
 {
     public class DataEntities:IDataRepository
     {
-
-        public bool check_for_unique_pub_key(string key)
+        public bool check_for_unique_pub_key(ulong key)
         {
-            return true;
+            throw new NotImplementedException();
         }
 
         public bool check_for_unique_session_id(int id)
         {
-            return true;
+            throw new NotImplementedException();
         }
 
         public bool check_for_unique_data_string(string data)
         {
-            return true;
+            throw new NotImplementedException();
         }
 
         public bool check_that_initialize_is_not_locked()
         {
-            return true;
+            throw new NotImplementedException();
         }
 
         public void store_failed_initialize_attempt(string public_key, ulong shared_key)
@@ -35,7 +34,7 @@ namespace Web_Security_Backend_Login_Handler.Models
 
         public void store_session(Session_Holder session)
         {
-
+            throw new NotImplementedException();
         }
 
         public Session_Holder get_session(int id)

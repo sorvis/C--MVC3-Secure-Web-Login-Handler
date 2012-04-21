@@ -37,7 +37,7 @@ namespace Web_Security_Backend_Login_Handler.Controllers
             ulong ulong_remote_pub_key;
             if (validate_key.validate(remote_public_key) &&
                 UInt64.TryParse(cleaned_pub_key, out ulong_remote_pub_key)&&
-                _db.check_for_unique_pub_key(cleaned_pub_key) &&
+                _db.check_for_unique_pub_key(ulong_remote_pub_key) &&
                 _db.check_that_initialize_is_not_locked())
             {
                 // incoming data seems to be good

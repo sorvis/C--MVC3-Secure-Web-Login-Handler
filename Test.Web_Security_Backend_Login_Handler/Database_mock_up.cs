@@ -20,11 +20,11 @@ namespace Test.Web_Security_Backend_Login_Handler
             _sessions.Add(temp_session);
         }
 
-        public bool check_for_unique_pub_key(string key)
+        public bool check_for_unique_pub_key(ulong key)
         {
             foreach (Session_Holder session in _sessions)
             {
-                if (session.remote_pub_key == UInt64.Parse(key))
+                if (session.remote_pub_key == key)
                 {
                     return false;
                 }

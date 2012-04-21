@@ -9,7 +9,7 @@ namespace Test.Web_Security_Backend_Login_Handler
     class Test_Database:IDataRepository
     {
 
-        public bool check_for_unique_pub_key(string key)
+        public bool check_for_unique_pub_key(ulong key)
         {
             throw new NotImplementedException();
         }

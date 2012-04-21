@@ -7,7 +7,12 @@ namespace Web_Security_Backend_Login_Handler.Models
 {
     public interface IDataRepository
     {
-        bool check_for_unique_pub_key(string key);
+        /// <summary>
+        /// Should check for a unique key used be both server and client
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        bool check_for_unique_pub_key(ulong key);
         bool check_for_unique_session_id(int id);
         bool check_for_unique_data_string(string data);
         bool check_that_initialize_is_not_locked();
