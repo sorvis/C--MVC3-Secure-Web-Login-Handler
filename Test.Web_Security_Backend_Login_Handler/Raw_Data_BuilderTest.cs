@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Test.Web_Security_Backend_Login_Handler
 {
@@ -71,10 +72,41 @@ namespace Test.Web_Security_Backend_Login_Handler
         {
             string plain_text_data = "Name=me;id=32;";
             Raw_Data_Builder_Accessor target = new Raw_Data_Builder_Accessor(plain_text_data);
-            Hashtable expected = new Hashtable();
-            expected.Add("Name", "me");
-            expected.Add("id", "32");
-            CollectionAssert.AreEqual(expected, target._data);
+            List<db_calculatedKey> expected = new List<db_calculatedKey>();
+            expected.Add(new db_calculatedKey("Name", "me"));
+            expected.Add(new db_calculatedKey("id", "32"));
+            Assert.IsTrue(are_db_calculatedKey_equal(expected, target._data));
+        }
+
+        private bool are_db_calculatedKey_equal(List<db_calculatedKey> expected, List<db_calculatedKey> actual)
+        {
+            if (expected.Count != actual.Count)
+            {
+                return false;
+            }
+
+            db_calculatedKey actual_item;
+            foreach (db_calculatedKey expected_item in expected)
+            {
+                actual_item = return_item_by_key(expected_item.Key, actual);
+                if (expected_item.Value != actual_item.Value)
+                {
+                    return false;
+
+                }
+            }
+            return true;
+        }
+        private db_calculatedKey return_item_by_key(string key, List<db_calculatedKey> list)
+        {
+            foreach (db_calculatedKey item in list)
+            {
+                if (item.Key == key)
+                {
+                    return item;
+                }
+            }
+            return null;
         }
     }
 }
