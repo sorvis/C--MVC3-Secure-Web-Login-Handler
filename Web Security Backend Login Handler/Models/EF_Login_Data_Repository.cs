@@ -51,37 +51,59 @@ namespace Web_Security_Backend_Login_Handler.Models
 
         public bool check_for_unique_session_id(int id)
         {
-            throw new NotImplementedException();
+            if (_db.Session.Find(id) == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool check_for_unique_data_string(string data)
         {
-            throw new NotImplementedException();
+            if (_db.Session.FirstOrDefault(d => d.data == data) == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool check_that_initialize_is_not_locked()
         {
-            throw new NotImplementedException();
+            return true;
+        }
+
+        public void store_failed_initialize_attempt(data_failed_login_attempt attempt)
+        {
+            _db.failed_logins.Add(attempt);
+            _db.SaveChanges();
         }
 
         public void store_failed_initialize_attempt(string public_key, long shared_key)
         {
-            throw new NotImplementedException();
+            store_failed_initialize_attempt(new data_failed_login_attempt(public_key, shared_key));
         }
 
         public void store_session(Session_Holder session)
         {
-            throw new NotImplementedException();
+            _db.Session.Add(session);
+            _db.SaveChanges();
         }
 
         public Session_Holder get_session(int id)
         {
-            throw new NotImplementedException();
+            return _db.Session.Find(id);
         }
 
         public void expire_session(int id)
         {
-            throw new NotImplementedException();
+            get_session(id).expired = true;
+            _db.SaveChanges();
         }
     }
 }

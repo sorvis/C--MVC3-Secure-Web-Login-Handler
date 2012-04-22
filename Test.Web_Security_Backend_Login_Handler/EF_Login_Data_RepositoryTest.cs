@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
+using System.Data.Entity;
 
 namespace Test.Web_Security_Backend_Login_Handler
 {
@@ -64,12 +65,15 @@ namespace Test.Web_Security_Backend_Login_Handler
         //
         #endregion
 
+        private long _sample_pub_key = 23345345;
+        private long _sample_priv_key = 3465544;
+        private long _sample_shared_key = 89579854;
+        private long _sample_remote_key = 0980984321;
+
         [TestMethod()]
-        public void check_for_unique_pub_keyTest_should_allow_a_new_key_to_be_used()
+        public void check_for_unique_pub_keyTest_should_return_true_when_key_does_not_exist_in_db()
         {
             DataEntities db = new DataEntities();
-            //db.failed_logins.Add(new data_failed_login_attempt("sdfrsdf", 2345));
-            //db.SaveChanges();
             EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
             target.reset_db();
 
@@ -80,142 +84,177 @@ namespace Test.Web_Security_Backend_Login_Handler
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for check_for_unique_data_string
-        ///</summary>
-        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
-        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
-        // whether you are testing a page, web service, or a WCF service.
         [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\Steven\\Documents\\Visual Studio 2010\\Projects\\Web Security Backend Login Handler\\Web Security Backend Login Handler", "/")]
-        [UrlToTest("http://localhost:53292/")]
-        public void check_for_unique_data_stringTest()
+        public void check_for_unique_pub_keyTest_should_return_false_when_the_same_SERVER_key_exists()
         {
-            EF_Login_Data_Repository target = new EF_Login_Data_Repository(); // TODO: Initialize to an appropriate value
-            string data = string.Empty; // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
+            DataEntities db = new DataEntities();
+            EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
+            target.reset_db();
+            Server_keys server_key = new Server_keys(_sample_pub_key, _sample_priv_key, _sample_shared_key);
+            db.server_keys.Add(server_key);
+            db.SaveChanges();
+
+            Assert.IsFalse(target.check_for_unique_pub_key(_sample_pub_key));
+        }
+
+        [TestMethod()]
+        public void check_for_unique_pub_keyTest_should_return_false_when_the_same_REMOTE_key_exists()
+        {
+            DataEntities db = new DataEntities();
+            EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
+            target.reset_db();
+            Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
+            target.store_session(session);
+
+            Assert.IsFalse(target.check_for_unique_pub_key(_sample_remote_key));
+        }
+
+        [TestMethod()]
+        public void check_for_unique_data_stringTest_should_return_true_when_string_is_not_found_in_db()
+        {
+            DataEntities db = new DataEntities();
+            EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
+            target.reset_db();
+
+            string data = "this string is not in the database";
+            bool expected = true;
             bool actual;
             actual = target.check_for_unique_data_string(data);
             Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
         }
 
-        /// <summary>
-        ///A test for check_for_unique_session_id
-        ///</summary>
-        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
-        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
-        // whether you are testing a page, web service, or a WCF service.
         [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\Steven\\Documents\\Visual Studio 2010\\Projects\\Web Security Backend Login Handler\\Web Security Backend Login Handler", "/")]
-        [UrlToTest("http://localhost:53292/")]
-        public void check_for_unique_session_idTest()
+        public void check_for_unique_data_stringTest_should_return_false_when_string_is_found_in_db()
         {
-            EF_Login_Data_Repository target = new EF_Login_Data_Repository(); // TODO: Initialize to an appropriate value
-            int id = 0; // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
+            DataEntities db = new DataEntities();
+            EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
+            target.reset_db();
+            Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
+            target.store_session(session);
+
+            Assert.IsFalse(target.check_for_unique_data_string(session.data));
+        }
+
+        [TestMethod()]
+        public void check_for_unique_session_idTest_should_return_true_when_id_is_not_found_in_db()
+        {
+            DataEntities db = new DataEntities();
+            EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
+            target.reset_db();
+
+            int id = 344252345;
+            bool expected = true; 
             bool actual;
             actual = target.check_for_unique_session_id(id);
             Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
         }
 
-        /// <summary>
-        ///A test for check_that_initialize_is_not_locked
-        ///</summary>
-        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
-        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
-        // whether you are testing a page, web service, or a WCF service.
         [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\Steven\\Documents\\Visual Studio 2010\\Projects\\Web Security Backend Login Handler\\Web Security Backend Login Handler", "/")]
-        [UrlToTest("http://localhost:53292/")]
-        public void check_that_initialize_is_not_lockedTest()
+        public void check_for_unique_session_idTest_should_return_false_when_id_is_found_in_db()
         {
-            EF_Login_Data_Repository target = new EF_Login_Data_Repository(); // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
+            DataEntities db = new DataEntities();
+            EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
+            target.reset_db();
+            Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
+            target.store_session(session);
+
+            int id = session.id;
+            bool actual;
+            actual = target.check_for_unique_session_id(id);
+            Assert.IsFalse(actual);
+        }
+
+        [TestMethod()]
+        public void check_that_initialize_is_not_lockedTest_should_return_true_when_it_is_not_locked()
+        {
+            DataEntities db = new DataEntities();
+            EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
+            target.reset_db();
+
+            bool expected = true;
             bool actual;
             actual = target.check_that_initialize_is_not_locked();
             Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
         }
 
-        /// <summary>
-        ///A test for expire_session
-        ///</summary>
-        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
-        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
-        // whether you are testing a page, web service, or a WCF service.
         [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\Steven\\Documents\\Visual Studio 2010\\Projects\\Web Security Backend Login Handler\\Web Security Backend Login Handler", "/")]
-        [UrlToTest("http://localhost:53292/")]
+        public void check_that_initialize_is_not_lockedTest_should_return_false_when_failed_login_attempt_has_happened_within_last_minute()
+        {
+            Assert.Inconclusive();
+        }
+
+        [TestMethod()]
         public void expire_sessionTest()
         {
-            EF_Login_Data_Repository target = new EF_Login_Data_Repository(); // TODO: Initialize to an appropriate value
-            int id = 0; // TODO: Initialize to an appropriate value
+            DataEntities db = new DataEntities();
+            EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
+            target.reset_db();
+            Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
+            target.store_session(session);
+
+            int id = session.id;
+            Assert.IsFalse(db.Session.Find(id).expired);
             target.expire_session(id);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+            Assert.IsTrue(db.Session.Find(id).expired);
         }
 
-        /// <summary>
-        ///A test for get_session
-        ///</summary>
-        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
-        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
-        // whether you are testing a page, web service, or a WCF service.
         [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\Steven\\Documents\\Visual Studio 2010\\Projects\\Web Security Backend Login Handler\\Web Security Backend Login Handler", "/")]
-        [UrlToTest("http://localhost:53292/")]
         public void get_sessionTest()
         {
-            EF_Login_Data_Repository target = new EF_Login_Data_Repository(); // TODO: Initialize to an appropriate value
-            int id = 0; // TODO: Initialize to an appropriate value
-            Session_Holder expected = null; // TODO: Initialize to an appropriate value
+            DataEntities db = new DataEntities();
+            EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
+            target.reset_db();
+            Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
+            target.store_session(session);
+
+            int id = session.id;
+            Session_Holder expected = session;
             Session_Holder actual;
             actual = target.get_session(id);
             Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
         }
 
-        /// <summary>
-        ///A test for store_failed_initialize_attempt
-        ///</summary>
-        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
-        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
-        // whether you are testing a page, web service, or a WCF service.
         [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\Steven\\Documents\\Visual Studio 2010\\Projects\\Web Security Backend Login Handler\\Web Security Backend Login Handler", "/")]
-        [UrlToTest("http://localhost:53292/")]
+        public void get_sessionTest_should_return_null_when_session_is_not_found()
+        {
+            DataEntities db = new DataEntities();
+            EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
+            target.reset_db();
+
+            int id = 54;
+            Session_Holder actual;
+            actual = target.get_session(id);
+            Assert.IsNull(actual);
+        }
+
+        [TestMethod()]
         public void store_failed_initialize_attemptTest()
         {
-            EF_Login_Data_Repository target = new EF_Login_Data_Repository(); // TODO: Initialize to an appropriate value
-            string public_key = string.Empty; // TODO: Initialize to an appropriate value
-            long shared_key = 0; // TODO: Initialize to an appropriate value
-            target.store_failed_initialize_attempt(public_key, shared_key);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+            DataEntities db = new DataEntities();
+            EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
+            target.reset_db();
+
+            string public_key = "this key is fake";
+            long shared_key = _sample_shared_key;
+            data_failed_login_attempt attempt = new data_failed_login_attempt(public_key, shared_key);
+            target.store_failed_initialize_attempt(attempt);
+            Assert.IsNotNull(db.failed_logins.Find(attempt.id));
         }
 
-        /// <summary>
-        ///A test for store_session
-        ///</summary>
-        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
-        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
-        // whether you are testing a page, web service, or a WCF service.
         [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\Steven\\Documents\\Visual Studio 2010\\Projects\\Web Security Backend Login Handler\\Web Security Backend Login Handler", "/")]
-        [UrlToTest("http://localhost:53292/")]
         public void store_sessionTest()
         {
-            EF_Login_Data_Repository target = new EF_Login_Data_Repository(); // TODO: Initialize to an appropriate value
-            Session_Holder session = null; // TODO: Initialize to an appropriate value
+            DataEntities db = new DataEntities();
+            EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
+            target.reset_db();
+
+            Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
             target.store_session(session);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+            Assert.IsNotNull(db.Session.Find(session.id));
         }
+
+        /*
+         * Helper functions
+         * */
     }
 }
