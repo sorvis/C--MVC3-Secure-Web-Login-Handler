@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Web_Security_Backend_Login_Handler.Models;
+using System.Data.Entity;
 
 namespace Web_Security_Backend_Login_Handler
 {
@@ -31,6 +33,9 @@ namespace Web_Security_Backend_Login_Handler
 
         protected void Application_Start()
         {
+            Database.SetInitializer<DataEntities>(new DropCreateDatabaseIfModelChanges<DataEntities>());
+            //Database.SetInitializer<DataEntities>(new DataContextInitializer());
+
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);

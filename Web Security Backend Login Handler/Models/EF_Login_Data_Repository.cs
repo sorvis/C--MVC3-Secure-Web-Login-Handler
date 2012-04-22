@@ -23,12 +23,30 @@ namespace Web_Security_Backend_Login_Handler.Models
         public void reset_db()
         {
             Database.SetInitializer<DataEntities>(new DropCreateDatabaseAlways<DataEntities>());
+            _db.Database.CreateIfNotExists();
             _db.Database.Initialize(true);
         }
+        /*
+         * Begin database access code
+         * */
 
+        /// <summary>
+        /// Checks both previously used server keys and previously used client pub keys
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns>True if the key has never been used before</returns>
         public bool check_for_unique_pub_key(ulong key)
         {
-            throw new NotImplementedException();
+            //Session_Holder remote = _db.Session.First(d => d.remote_pub_key == key);
+            Server_keys server = _db.server_keys.FirstOrDefault(d => d.public_key == key);
+            if (/*remote != null ||*/ server != null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public bool check_for_unique_session_id(int id)
