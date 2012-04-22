@@ -8,8 +8,8 @@ namespace Web_Security_Backend_Login_Handler.Models
 {
     public class Raw_Data_Builder
     {
-        private Hashtable _data = new Hashtable();
-        public Hashtable Get_Login_Data { get { return _data; } }
+        private List<db_calculatedKey> _data = new List<db_calculatedKey>();
+        public List<db_calculatedKey> Get_Login_Data { get { return _data; } }
         public Raw_Data_Builder(string plain_text_data)
         {
             // strip off trailing semicolon
@@ -19,7 +19,8 @@ namespace Web_Security_Backend_Login_Handler.Models
             }
             foreach (string element in plain_text_data.Split(';'))
             {
-                _data.Add(element.Split('=')[0], element.Split('=')[1]);
+                _data.Add(new db_calculatedKey(element.Split('=')[0], element.Split('=')[1]));
+                //_data.Add(element.Split('=')[0], element.Split('=')[1]);
             }
         }
     }

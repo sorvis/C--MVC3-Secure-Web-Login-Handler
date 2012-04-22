@@ -21,7 +21,7 @@ namespace Test.Web_Security_Backend_Login_Handler
         {
             Session_Holder temp_session = new Session_Holder(this, 1234123435, 23412341234);
             sessionID = temp_session.id;
-            calculatedKey = temp_session.calulated_key;
+            calculatedKey = db_calculatedKey.convert_list_of_calculatedKey_to_Hashtable(temp_session.calulated_key);
             loginData = temp_session.data;
             _sessions.Add(temp_session);
         }

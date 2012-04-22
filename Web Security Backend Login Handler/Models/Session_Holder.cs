@@ -17,7 +17,8 @@ namespace Web_Security_Backend_Login_Handler.Models
         public ulong remote_pub_key { get; set; }
         public ulong remote_shared_key { get; set; }
         public string encrypted_message { get; set; }
-        public Hashtable calulated_key { get; set; }
+        //public Hashtable calulated_key { get; set; }
+        public List<db_calculatedKey> calulated_key { get; set; }
 
         public Session_Holder()
         {
@@ -30,7 +31,7 @@ namespace Web_Security_Backend_Login_Handler.Models
             
             data_generator login_data = new data_generator(db, User_Password.Password);
             this.data = login_data.LoginData;
-            this.calulated_key = login_data.CalulatedKey;
+            this.calulated_key = db_calculatedKey.convert_Hashtable_to_list_of_calculatedKey(login_data.CalulatedKey);
 
             int counter = 0;
             do//ensure a unique key is picked
@@ -54,7 +55,7 @@ namespace Web_Security_Backend_Login_Handler.Models
                 return false;
             }
 
-            foreach(DictionaryEntry item in calulated_key)
+            foreach(db_calculatedKey item in calulated_key)
             {
                 if ((string)login_attempt[item.Key] != (string)item.Value.ToString())
                 {

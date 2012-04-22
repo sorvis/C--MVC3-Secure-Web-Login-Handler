@@ -73,7 +73,7 @@ namespace Web_Security_Backend_Login_Handler.Controllers
             string decrypted_data = encryption_wrapper.decrypt_message(session.server_key.private_key, session.remote_shared_key, data);
             Raw_Data_Builder login_attempt = new Raw_Data_Builder(decrypted_data);
 
-            if (session.validate_login(login_attempt.Get_Login_Data))
+            if (session.validate_login(db_calculatedKey.convert_list_of_calculatedKey_to_Hashtable(login_attempt.Get_Login_Data)))
             {
                 ViewBag.message = "Nuclear missle set to launch. Targeted impact point is: 40.771950, -80.321137 Estimated time of impact: 5 minutes radius of effect 5-miles.";
             }

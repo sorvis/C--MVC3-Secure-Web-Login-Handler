@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Test.Web_Security_Backend_Login_Handler
 {
@@ -70,9 +71,9 @@ namespace Test.Web_Security_Backend_Login_Handler
         public void validateloginTest_should_return_true_when_SessionHolder_contains_alls_same_element_dispite_extra_passed_in_elements()
         {
             Session_Holder target = new Session_Holder();
-            target.calulated_key = new Hashtable();
-            target.calulated_key.Add("test", "test_value");
-            target.calulated_key.Add("a random thing", "anything");
+            target.calulated_key = new List<db_calculatedKey>();
+            target.calulated_key.Add(new db_calculatedKey("test", "test_value"));
+            target.calulated_key.Add(new db_calculatedKey("a random thing", "anything"));
 
             Hashtable login_attempt = new Hashtable();
             login_attempt.Add("a random thing", "anything");
@@ -89,8 +90,8 @@ namespace Test.Web_Security_Backend_Login_Handler
         public void validateloginTest_should_return_false_when_SessionHolder_contains_same_key_but_different_value()
         {
             Session_Holder target = new Session_Holder();
-            target.calulated_key = new Hashtable();
-            target.calulated_key.Add("test", "test_value");
+            target.calulated_key = new List<db_calculatedKey>();
+            target.calulated_key.Add(new db_calculatedKey("test", "test_value"));
 
             Hashtable login_attempt = new Hashtable();
             login_attempt.Add("a random thing", "anything");
@@ -107,8 +108,8 @@ namespace Test.Web_Security_Backend_Login_Handler
         public void validateloginTest_should_return_false_when_SessionHolder_does_not_contain_same_values()
         {
             Session_Holder target = new Session_Holder();
-            target.calulated_key = new Hashtable();
-            target.calulated_key.Add("test", "test_value");
+            target.calulated_key = new List<db_calculatedKey>();
+            target.calulated_key.Add(new db_calculatedKey("test", "test_value"));
 
             Hashtable login_attempt = new Hashtable();
             login_attempt.Add("a random thing", "anything");
@@ -124,7 +125,7 @@ namespace Test.Web_Security_Backend_Login_Handler
         public void validateloginTest_should_return_false_when_SessionHolder_contains_no_values()
         {
             Session_Holder target = new Session_Holder();
-            target.calulated_key = new Hashtable();
+            target.calulated_key = new List<db_calculatedKey>();
 
             Hashtable login_attempt = new Hashtable();
             login_attempt.Add("a random thing", "anything");
@@ -140,8 +141,8 @@ namespace Test.Web_Security_Backend_Login_Handler
         public void validateloginTest_should_return_false_when_login_attempt_is_empty()
         {
             Session_Holder target = new Session_Holder();
-            target.calulated_key = new Hashtable();
-            target.calulated_key.Add("test", "test_value");
+            target.calulated_key = new List<db_calculatedKey>();
+            target.calulated_key.Add(new db_calculatedKey("test", "test_value"));
 
             Hashtable login_attempt = new Hashtable();
 
@@ -158,11 +159,11 @@ namespace Test.Web_Security_Backend_Login_Handler
             string data = "pa2ge_19_text=secretPassword;page_1_button_3=true;";
             target.calulated_key = (new Raw_Data_Builder(data)).Get_Login_Data;
 
-            Hashtable login_attempt = (new Raw_Data_Builder(data)).Get_Login_Data;
+            List<db_calculatedKey> login_attempt = (new Raw_Data_Builder(data)).Get_Login_Data;
 
             bool expected = true;
             bool actual;
-            actual = target.validate_login(login_attempt);
+            actual = target.validate_login(db_calculatedKey.convert_list_of_calculatedKey_to_Hashtable(login_attempt));
             Assert.AreEqual(expected, actual);
         }
     }
