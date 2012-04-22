@@ -26,7 +26,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             _sessions.Add(temp_session);
         }
 
-        public bool check_for_unique_pub_key(ulong key)
+        public bool check_for_unique_pub_key(long key)
         {
             foreach (Session_Holder session in _sessions)
             {
@@ -67,7 +67,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             return _database_is_not_locked;
         }
 
-        public void store_failed_initialize_attempt(string public_key, ulong shared_key)
+        public void store_failed_initialize_attempt(string public_key, long shared_key)
         {
             _attempts.Add(new data_failed_login_attempt(public_key, shared_key));
         }

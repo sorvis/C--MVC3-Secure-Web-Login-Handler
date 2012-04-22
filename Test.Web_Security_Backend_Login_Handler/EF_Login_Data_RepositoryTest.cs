@@ -73,7 +73,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
             target.reset_db();
 
-            ulong key = 34534534534545;
+            long key = 34534534534545;
             bool expected = true;
             bool actual;
             actual = target.check_for_unique_pub_key(key);
@@ -195,7 +195,7 @@ namespace Test.Web_Security_Backend_Login_Handler
         {
             EF_Login_Data_Repository target = new EF_Login_Data_Repository(); // TODO: Initialize to an appropriate value
             string public_key = string.Empty; // TODO: Initialize to an appropriate value
-            ulong shared_key = 0; // TODO: Initialize to an appropriate value
+            long shared_key = 0; // TODO: Initialize to an appropriate value
             target.store_failed_initialize_attempt(public_key, shared_key);
             Assert.Inconclusive("A method that does not return a value cannot be verified.");
         }

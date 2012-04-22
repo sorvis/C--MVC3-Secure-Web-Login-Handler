@@ -10,20 +10,20 @@ namespace Web_Security_Backend_Login_Handler.Models
     {
         [Key]
         public int id { get; set; }
-        public ulong public_key { get; set; }
-        public ulong private_key { get; set; }
-        public ulong shared_key { get; set; }
+        public long public_key { get; set; }
+        public long private_key { get; set; }
+        public long shared_key { get; set; }
 
         public void set_private_key(string key)
         {
-            private_key = UInt64.Parse(key);
+            private_key = Int64.Parse(key);
         }
 
         public Server_keys()
         {
 
         }
-        public Server_keys(ulong pubKey, ulong privKey, ulong sharedKey)
+        public Server_keys(long pubKey, long privKey, long sharedKey)
         {
             this.public_key = pubKey;
             this.private_key = privKey;

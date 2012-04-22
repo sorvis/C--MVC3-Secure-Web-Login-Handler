@@ -35,11 +35,11 @@ namespace Web_Security_Backend_Login_Handler.Models
         /// </summary>
         /// <param name="key"></param>
         /// <returns>True if the key has never been used before</returns>
-        public bool check_for_unique_pub_key(ulong key)
+        public bool check_for_unique_pub_key(long key)
         {
-            //Session_Holder remote = _db.Session.First(d => d.remote_pub_key == key);
+            Session_Holder remote = _db.Session.FirstOrDefault(d => d.remote_pub_key == key);
             Server_keys server = _db.server_keys.FirstOrDefault(d => d.public_key == key);
-            if (/*remote != null ||*/ server != null)
+            if (remote != null || server != null)
             {
                 return false;
             }
@@ -64,7 +64,7 @@ namespace Web_Security_Backend_Login_Handler.Models
             throw new NotImplementedException();
         }
 
-        public void store_failed_initialize_attempt(string public_key, ulong shared_key)
+        public void store_failed_initialize_attempt(string public_key, long shared_key)
         {
             throw new NotImplementedException();
         }

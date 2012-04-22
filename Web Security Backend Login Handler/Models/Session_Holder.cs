@@ -14,8 +14,8 @@ namespace Web_Security_Backend_Login_Handler.Models
         public bool expired { get; set; }
         public string data { get; set; }
         public Server_keys server_key { get; set; }
-        public ulong remote_pub_key { get; set; }
-        public ulong remote_shared_key { get; set; }
+        public long remote_pub_key { get; set; }
+        public long remote_shared_key { get; set; }
         public string encrypted_message { get; set; }
         //public Hashtable calulated_key { get; set; }
         public List<db_calculatedKey> calulated_key { get; set; }
@@ -25,7 +25,7 @@ namespace Web_Security_Backend_Login_Handler.Models
 
         }
 
-        public Session_Holder(IDataRepository db, ulong remote_key, ulong remote_shared_key)
+        public Session_Holder(IDataRepository db, long remote_key, long remote_shared_key)
          {
             this.id = session_id_generator.make_random_id(db);
             

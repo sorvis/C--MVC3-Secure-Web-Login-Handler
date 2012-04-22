@@ -89,7 +89,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             foreach (db_calculatedKey expected_item in expected)
             {
                 actual_item = return_item_by_key(expected_item.Key, actual);
-                if (expected_item.Value != actual_item.Value)
+                if (actual_item != null && expected_item.Value != actual_item.Value)
                 {
                     return false;
 

@@ -14,11 +14,11 @@ namespace Web_Security_Backend_Login_Handler.Models
             long long_pub_key = Int64.Parse(public_key);
             return message;
         }
-        public static string decrypt_message(string private_key, ulong remote_shared_key, string message)
+        public static string decrypt_message(string private_key, long remote_shared_key, string message)
         {
-            return decrypt_message(UInt64.Parse(private_key), remote_shared_key, message);
+            return decrypt_message(Int64.Parse(private_key), remote_shared_key, message);
         }
-        public static string decrypt_message(ulong private_key, ulong remote_shared_key, string message)
+        public static string decrypt_message(long private_key, long remote_shared_key, string message)
         {
             return message;
         }
@@ -26,7 +26,7 @@ namespace Web_Security_Backend_Login_Handler.Models
         {
             // should be using scotts key generator
             Random rand = new Random();
-            return new Server_keys((UInt64)rand.Next(100), (UInt64)rand.Next(100), (UInt64)rand.Next(100));
+            return new Server_keys((Int64)rand.Next(100), (Int64)rand.Next(100), (Int64)rand.Next(100));
         }
     }
 }

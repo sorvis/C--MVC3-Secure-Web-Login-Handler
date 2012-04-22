@@ -31,13 +31,13 @@ namespace Web_Security_Backend_Login_Handler.Controllers
         //
         // GET: /authentication/initialize?remote_public_key=43235359345345345&shared_key=4325465423452345&
 
-        public ActionResult initialize(string remote_public_key, ulong shared_key)
+        public ActionResult initialize(string remote_public_key, long shared_key)
         {
             string cleaned_pub_key = validate_key.clean_key(remote_public_key);
-            ulong ulong_remote_pub_key;
+            long long_remote_pub_key;
             if (validate_key.validate(remote_public_key) &&
-                UInt64.TryParse(cleaned_pub_key, out ulong_remote_pub_key)&&
-                _db.check_for_unique_pub_key(ulong_remote_pub_key) &&
+                Int64.TryParse(cleaned_pub_key, out long_remote_pub_key)&&
+                _db.check_for_unique_pub_key(long_remote_pub_key) &&
                 _db.check_that_initialize_is_not_locked())
             {
                 // incoming data seems to be good
@@ -49,7 +49,7 @@ namespace Web_Security_Backend_Login_Handler.Controllers
                 return View();
             }
 
-            Session_Holder session = new Session_Holder(_db, ulong_remote_pub_key, shared_key);
+            Session_Holder session = new Session_Holder(_db, long_remote_pub_key, shared_key);
             _db.store_session(session);
             ViewBag.message = session.encrypted_message;
 

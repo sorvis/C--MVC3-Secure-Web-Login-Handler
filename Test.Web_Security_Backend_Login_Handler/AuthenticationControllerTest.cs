@@ -75,7 +75,7 @@ namespace Test.Web_Security_Backend_Login_Handler
         {
             AuthenticationController target = new AuthenticationController(new Database_mock_up());
             string remote_public_key = "43235359345345345"; // includes key checking items
-            ulong shared_key = 4325465423452345;
+            long shared_key = 4325465423452345;
             ViewResult actual = target.initialize(remote_public_key, shared_key) as ViewResult;
             Assert.IsNotNull(actual.ViewBag.message);
             Assert.AreNotEqual("lasdflj2fjlwjefljawlj3", actual.ViewBag.message);
@@ -86,7 +86,7 @@ namespace Test.Web_Security_Backend_Login_Handler
         {
             AuthenticationController target = new AuthenticationController(new Database_mock_up());
             string remote_public_key = "43335359345345345"; // does not include key checking items
-            ulong shared_key = 4325465423452345;
+            long shared_key = 4325465423452345;
             ViewResult actual = target.initialize(remote_public_key, shared_key) as ViewResult;
             Assert.IsNotNull(actual.ViewBag.message);
             Assert.AreEqual("lasdflj2fjlwjefljawlj3", actual.ViewBag.message);
@@ -97,7 +97,7 @@ namespace Test.Web_Security_Backend_Login_Handler
         {
             AuthenticationController target = new AuthenticationController(new Database_mock_up());
             string remote_public_key = "43235359asdfasdf5"; // includes key checking items
-            ulong shared_key = 4325465423452345;
+            long shared_key = 4325465423452345;
             ViewResult actual = target.initialize(remote_public_key, shared_key) as ViewResult;
             Assert.IsNotNull(actual.ViewBag.message);
             Assert.AreEqual("lasdflj2fjlwjefljawlj3", actual.ViewBag.message);
