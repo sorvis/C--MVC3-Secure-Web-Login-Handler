@@ -20,7 +20,7 @@ namespace Test.Web_Security_Backend_Login_Handler
         public Database_mock_up()
         {
             Session_Holder temp_session = new Session_Holder(this, 1234123435, 23412341234);
-            sessionID = temp_session.id;
+            sessionID = temp_session.session_id;
             calculatedKey = db_calculatedKey.convert_list_of_calculatedKey_to_Hashtable(temp_session.calulated_key);
             loginData = temp_session.data;
             _sessions.Add(temp_session);
@@ -42,7 +42,7 @@ namespace Test.Web_Security_Backend_Login_Handler
         {
             foreach (Session_Holder session in _sessions)
             {
-                if (session.id == id)
+                if (session.session_id == id)
                 {
                     return false;
                 }
@@ -83,7 +83,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             tempSession = _sessions.Find(
                 delegate(Session_Holder session)
                 {
-                    return session.id==id;
+                    return session.session_id==id;
                 });
             return tempSession;
         }

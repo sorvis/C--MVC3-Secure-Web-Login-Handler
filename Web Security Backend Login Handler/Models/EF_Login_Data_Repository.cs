@@ -51,7 +51,7 @@ namespace Web_Security_Backend_Login_Handler.Models
 
         public bool check_for_unique_session_id(int id)
         {
-            if (_db.Session.Find(id) == null)
+            if (get_session(id) == null)
             {
                 return true;
             }
@@ -97,7 +97,11 @@ namespace Web_Security_Backend_Login_Handler.Models
 
         public Session_Holder get_session(int id)
         {
-            return _db.Session.Find(id);
+            //return _db.Session.Find(id);
+            return _db.Session
+                .Include("server_key")
+                .Include("calulated_key")
+                .FirstOrDefault(d => d.session_id == id);
         }
 
         public void expire_session(int id)

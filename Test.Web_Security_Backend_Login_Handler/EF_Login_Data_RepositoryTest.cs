@@ -184,7 +184,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
             target.store_session(session);
 
-            int id = session.id;
+            int id = session.session_id;
             bool actual;
             actual = target.check_for_unique_session_id(id);
             Assert.IsFalse(actual);
@@ -218,10 +218,10 @@ namespace Test.Web_Security_Backend_Login_Handler
             Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
             target.store_session(session);
 
-            int id = session.id;
-            Assert.IsFalse(db.Session.Find(id).expired);
+            int id = session.session_id;
+            Assert.IsFalse(target.get_session(session.session_id).expired);
             target.expire_session(id);
-            Assert.IsTrue(db.Session.Find(id).expired);
+            Assert.IsTrue(target.get_session(session.session_id).expired);
         }
 
         [TestMethod()]
@@ -233,7 +233,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
             target.store_session(session);
 
-            int id = session.id;
+            int id = session.session_id;
             Session_Holder expected = session;
             Session_Holder actual;
             actual = target.get_session(id);
@@ -276,7 +276,7 @@ namespace Test.Web_Security_Backend_Login_Handler
 
             Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
             target.store_session(session);
-            Assert.IsNotNull(db.Session.Find(session.id));
+            Assert.IsNotNull(target.get_session(session.session_id));
         }
 
         [TestMethod()]
@@ -288,15 +288,15 @@ namespace Test.Web_Security_Backend_Login_Handler
 
             Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
             target.store_session(session);
-            Assert.IsNotNull(db.Session.Find(session.id));
+            Assert.IsNotNull(target.get_session(session.session_id));
 
             session = new Session_Holder(target, _sample_remote_key+1, _sample_shared_key+1);
             target.store_session(session);
-            Assert.IsNotNull(db.Session.Find(session.id));
+            Assert.IsNotNull(target.get_session(session.session_id));
 
             session = new Session_Holder(target, _sample_remote_key + 2, _sample_shared_key + 2);
             target.store_session(session);
-            Assert.IsNotNull(db.Session.Find(session.id));
+            Assert.IsNotNull(target.get_session(session.session_id));
         }
 
         /*
