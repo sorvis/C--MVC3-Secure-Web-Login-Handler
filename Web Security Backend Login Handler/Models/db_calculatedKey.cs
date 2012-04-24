@@ -10,6 +10,7 @@ namespace Web_Security_Backend_Login_Handler.Models
     public class db_calculatedKey
     {
         [Key]
+        public int id { get; set; }
         public string Key { get; set; }
         public string Value { get; set; }
 

@@ -70,6 +70,7 @@ namespace Test.Web_Security_Backend_Login_Handler
         private long _sample_shared_key = 89579854;
         private long _sample_remote_key = 0980984321;
 
+        
         [TestMethod()]
         public void check_for_unique_pub_keyTest_should_return_true_when_key_does_not_exist_in_db()
         {
@@ -107,6 +108,31 @@ namespace Test.Web_Security_Backend_Login_Handler
             target.store_session(session);
 
             Assert.IsFalse(target.check_for_unique_pub_key(_sample_remote_key));
+        }
+
+        [TestMethod()]
+        public void check_for_unique_pub_keyTest_should_return_True_when_a_different_REMOTE_key_exists()
+        {
+            DataEntities db = new DataEntities();
+            EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
+            target.reset_db();
+            Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
+            target.store_session(session);
+
+            Assert.IsTrue(target.check_for_unique_pub_key(_sample_pub_key));
+        }
+
+        [TestMethod()]
+        public void check_for_unique_pub_keyTest_should_return_True_when_a_different_SERVER_key_exists()
+        {
+            DataEntities db = new DataEntities();
+            EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
+            target.reset_db();
+            Server_keys server_key = new Server_keys(_sample_pub_key, _sample_priv_key, _sample_shared_key);
+            db.server_keys.Add(server_key);
+            db.SaveChanges();
+
+            Assert.IsTrue(target.check_for_unique_pub_key(_sample_remote_key));
         }
 
         [TestMethod()]
@@ -249,6 +275,26 @@ namespace Test.Web_Security_Backend_Login_Handler
             target.reset_db();
 
             Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
+            target.store_session(session);
+            Assert.IsNotNull(db.Session.Find(session.id));
+        }
+
+        [TestMethod()]
+        public void store_sessionTest_should_allow_multiple_sessions_to_be_stored()
+        {
+            DataEntities db = new DataEntities();
+            EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
+            target.reset_db();
+
+            Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
+            target.store_session(session);
+            Assert.IsNotNull(db.Session.Find(session.id));
+
+            session = new Session_Holder(target, _sample_remote_key+1, _sample_shared_key+1);
+            target.store_session(session);
+            Assert.IsNotNull(db.Session.Find(session.id));
+
+            session = new Session_Holder(target, _sample_remote_key + 2, _sample_shared_key + 2);
             target.store_session(session);
             Assert.IsNotNull(db.Session.Find(session.id));
         }
