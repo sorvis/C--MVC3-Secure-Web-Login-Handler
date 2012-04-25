@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using RSAClasses;
 
 namespace Web_Security_Backend_Login_Handler.Models
 {
@@ -24,6 +25,7 @@ namespace Web_Security_Backend_Login_Handler.Models
         }
         public static Server_keys get_keys()
         {
+             //RSA rsa = new RSA(
             // should be using scotts key generator
             Random rand = new Random();
             return new Server_keys((Int64)rand.Next(100), (Int64)rand.Next(100), (Int64)rand.Next(100));

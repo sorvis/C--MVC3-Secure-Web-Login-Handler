@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Web Security Backend Login Handler.vsmdi = Web Security Backend Login Handler.vsmdi
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSAClasses", "..\..\..\..\Desktop\RSAClasses\RSAClasses\RSAClasses.csproj", "{707A39C5-D485-443C-A666-C20882092348}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Web Security Backend Login Handler.vsmdi
@@ -29,6 +31,10 @@ Global
 		{636CF864-7905-41CE-8BFD-AE2AA88507E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{636CF864-7905-41CE-8BFD-AE2AA88507E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{636CF864-7905-41CE-8BFD-AE2AA88507E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{707A39C5-D485-443C-A666-C20882092348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{707A39C5-D485-443C-A666-C20882092348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{707A39C5-D485-443C-A666-C20882092348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{707A39C5-D485-443C-A666-C20882092348}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
