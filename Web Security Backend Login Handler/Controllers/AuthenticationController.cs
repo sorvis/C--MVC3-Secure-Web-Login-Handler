@@ -4,12 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Web_Security_Backend_Login_Handler.Models;
+using Web_Security_Backend_Login_Handler.Controllers.Denial_Service_Protection;
+using System.ComponentModel;
 
 namespace Web_Security_Backend_Login_Handler.Controllers
 {
     public class AuthenticationController : Controller
     {
         private IDataRepository _db;
+        private Service_Manager _service_manager;
 
         public AuthenticationController()
         {
@@ -18,6 +21,11 @@ namespace Web_Security_Backend_Login_Handler.Controllers
         public AuthenticationController(IDataRepository db)
         {
             _db = db;
+        }
+
+        private void save_Service_Manager()
+        {
+
         }
 
         //
@@ -36,9 +44,16 @@ namespace Web_Security_Backend_Login_Handler.Controllers
             string strHostName = System.Net.Dns.GetHostName();
             string clientIPAddress = System.Net.Dns.GetHostAddresses(strHostName).GetValue(0).ToString();
 
+            if (_service_manager.is_ip_locked(clientIPAddress))
+            {
+                ViewBag.message = "Server has been locked!";
+                save_Service_Manager();
+                return View();
+            }
+
             string cleaned_pub_key = validate_key.clean_key(remote_public_key);
             long long_remote_pub_key;
-            if (validate_key.validate(remote_public_key) &&
+            if ( validate_key.validate(remote_public_key) &&
                 Int64.TryParse(cleaned_pub_key, out long_remote_pub_key)&&
                 _db.check_for_unique_pub_key(long_remote_pub_key) &&
                 _db.check_that_initialize_is_not_locked())
@@ -48,7 +63,9 @@ namespace Web_Security_Backend_Login_Handler.Controllers
             else//somone tried passing in a bad key
             {
                 _db.store_failed_initialize_attempt(remote_public_key, shared_key);
+                _service_manager.record_failed_attempt(clientIPAddress);
                 ViewBag.message = "lasdflj2fjlwjefljawlj3";
+                save_Service_Manager();
                 return View();
             }
 
@@ -56,6 +73,7 @@ namespace Web_Security_Backend_Login_Handler.Controllers
             _db.store_session(session);
             ViewBag.message = session.encrypted_message;
 
+            save_Service_Manager();
             return View();
         }
 
@@ -68,9 +86,11 @@ namespace Web_Security_Backend_Login_Handler.Controllers
             string clientIPAddress = System.Net.Dns.GetHostAddresses(strHostName).GetValue(0).ToString();
 
             Session_Holder session = _db.get_session(id);
-            if (session == null || session.expired || !validate_key.validate(data))
+            if (_service_manager.is_ip_locked(clientIPAddress) && session == null || session.expired || !validate_key.validate(data))
             {
                 ViewBag.message = "Failed login";
+                _service_manager.record_failed_attempt(clientIPAddress);
+                save_Service_Manager();
                 return View();
             }
 
@@ -86,8 +106,10 @@ namespace Web_Security_Backend_Login_Handler.Controllers
             else
             {
                 ViewBag.message = "Failed login";
+                _service_manager.record_failed_attempt(clientIPAddress);
             }
 
+            save_Service_Manager();
             return View();
         }
 
