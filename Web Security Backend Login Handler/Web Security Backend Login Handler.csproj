@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\Denial_Service_Protection\log_ip_fail.cs" />
+    <Compile Include="Controllers\Denial_Service_Protection\ObjectSerializing.cs" />
     <Compile Include="Controllers\Denial_Service_Protection\Service_Manager.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

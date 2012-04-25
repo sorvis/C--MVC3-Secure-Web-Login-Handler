@@ -2,15 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Runtime.Serialization;
 
 namespace Web_Security_Backend_Login_Handler.Controllers.Denial_Service_Protection
 {
-    public class Service_Manager
+    [Serializable()]
+    public class Service_Manager : ISerializable
     {
         private List<log_ip_fail> _attempts = new List<log_ip_fail>();
+        public List<log_ip_fail> Attempts { get { return _attempts; } }
         private int _allowed_attempts = 3;
         private long _Ticks_between_attempts = 60 * 10000000;
         private long _Ticks_until_user_can_unlock = 180 * 10000000; // 10,000,000 is number of ticks in one second
+
+        public Service_Manager()
+        {
+
+        }
 
         public void record_failed_attempt(string ip)
         {
@@ -54,6 +62,15 @@ namespace Web_Security_Backend_Login_Handler.Controllers.Denial_Service_Protecti
                 {
                     return item.IP_Address == ip;
                 });
+        }
+
+        void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("_attempts", _attempts);
+        }
+        public Service_Manager(SerializationInfo info, StreamingContext ctxt)
+        {
+            _attempts = (List<log_ip_fail>)info.GetValue("_attempts", typeof(List<log_ip_fail>));
         }
     }
 }

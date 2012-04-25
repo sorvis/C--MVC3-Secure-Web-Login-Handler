@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using Web_Security_Backend_Login_Handler.Models;
 using Web_Security_Backend_Login_Handler.Controllers.Denial_Service_Protection;
 using System.ComponentModel;
+using System.Web.Hosting;
+using System.IO;
 
 namespace Web_Security_Backend_Login_Handler.Controllers
 {
@@ -13,19 +15,34 @@ namespace Web_Security_Backend_Login_Handler.Controllers
     {
         private IDataRepository _db;
         private Service_Manager _service_manager;
+        private string _service_manager_save_file = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "temp_Service_Manager.data");
 
         public AuthenticationController()
         {
             _db = new EF_Login_Data_Repository();
+            _service_manager = load_Service_Manger();
         }
         public AuthenticationController(IDataRepository db)
         {
             _db = db;
+            _service_manager = load_Service_Manger();
+        }
+
+        private Service_Manager load_Service_Manger()
+        {
+            if (System.IO.File.Exists(_service_manager_save_file))
+            {
+                return (Service_Manager)ObjectSerializing.DeSerializeObject(_service_manager_save_file);
+            }
+            else
+            {
+                return new Service_Manager();
+            }
         }
 
         private void save_Service_Manager()
         {
-
+            ObjectSerializing.SerializeObject(_service_manager_save_file, _service_manager);
         }
 
         //
