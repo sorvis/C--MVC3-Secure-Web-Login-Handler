@@ -67,7 +67,7 @@ namespace Test.Web_Security_Backend_Login_Handler
         //
         #endregion
 
-        private string _good_login_message = "Nuclear missle set to launch. Targeted impact point is: 40.771950, -80.321137 Estimated time of impact: 5 minutes radius of effect 5-miles.";
+        private string _good_login_message = "Nuclear missle set to launch. Targeted impact point is: 40.771950, -80.321137 Estimated time of impact: 5 minutes. Radius of effect 5-miles.";
         private string _bad_login_message = "Failed login";
 
         [TestMethod()]
