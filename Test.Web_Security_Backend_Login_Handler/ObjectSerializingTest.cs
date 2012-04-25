@@ -76,6 +76,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             ObjectSerializing.SerializeObject(filename, objectToSerialize);
             Service_Manager retrieved_service = (Service_Manager)ObjectSerializing.DeSerializeObject(filename);
             Assert.IsNotNull(retrieved_service);
+            Assert.IsNotNull(retrieved_service.Attempts[0]);
         }
     }
 }

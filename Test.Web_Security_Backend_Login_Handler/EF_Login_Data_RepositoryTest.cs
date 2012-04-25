@@ -203,11 +203,11 @@ namespace Test.Web_Security_Backend_Login_Handler
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod()]
-        public void check_that_initialize_is_not_lockedTest_should_return_false_when_failed_login_attempt_has_happened_within_last_minute()
-        {
-            Assert.Inconclusive();
-        }
+        //[TestMethod()]
+        //public void check_that_initialize_is_not_lockedTest_should_return_false_when_failed_login_attempt_has_happened_within_last_minute()
+        //{
+        //    Assert.Inconclusive();
+        //}
 
         [TestMethod()]
         public void expire_sessionTest()

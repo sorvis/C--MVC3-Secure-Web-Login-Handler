@@ -15,17 +15,19 @@ namespace Web_Security_Backend_Login_Handler.Controllers
     {
         private IDataRepository _db;
         private Service_Manager _service_manager;
-        private string _service_manager_save_file = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "temp_Service_Manager.data");
+        private string _service_manager_save_file;
 
         public AuthenticationController()
         {
             _db = new EF_Login_Data_Repository();
+
+            _service_manager_save_file = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "temp_Service_Manager.data");
             _service_manager = load_Service_Manger();
         }
         public AuthenticationController(IDataRepository db)
         {
             _db = db;
-            _service_manager = load_Service_Manger();
+            _service_manager = new Service_Manager(); // lock is not persistant for testing
         }
 
         private Service_Manager load_Service_Manger()
@@ -42,7 +44,10 @@ namespace Web_Security_Backend_Login_Handler.Controllers
 
         private void save_Service_Manager()
         {
-            ObjectSerializing.SerializeObject(_service_manager_save_file, _service_manager);
+            if (_service_manager_save_file != null)
+            {
+                ObjectSerializing.SerializeObject(_service_manager_save_file, _service_manager);
+            }
         }
 
         //
@@ -103,7 +108,7 @@ namespace Web_Security_Backend_Login_Handler.Controllers
             string clientIPAddress = System.Net.Dns.GetHostAddresses(strHostName).GetValue(0).ToString();
 
             Session_Holder session = _db.get_session(id);
-            if (_service_manager.is_ip_locked(clientIPAddress) && session == null || session.expired || !validate_key.validate(data))
+            if (_service_manager.is_ip_locked(clientIPAddress) || session == null || session.expired || !validate_key.validate(data))
             {
                 ViewBag.message = "Failed login";
                 _service_manager.record_failed_attempt(clientIPAddress);
