@@ -21,9 +21,9 @@ namespace Web_Security_Backend_Login_Handler.Controllers.Denial_Service_Protecti
             Last_Attempt = DateTime.Now;
             Fail_Count++;
         }
-        public int Seconds_Since_Last_Failed_Attempt()
+        public long Ticks_Since_Last_Failed_Attempt()
         {
-            return Last_Attempt.Second - DateTime.Now.Second;
+            return DateTime.Now.Ticks - Last_Attempt.Ticks;
         }
     }
 }

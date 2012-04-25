@@ -5,3 +5,5 @@ c:\users\steven\documents\visual studio 2010\Projects\Web Security Backend Login
 c:\users\steven\documents\visual studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\obj\Debug\ResolveAssemblyReference.cache
 c:\users\steven\documents\visual studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\obj\Debug\Web Security Backend Login Handler.dll
 c:\users\steven\documents\visual studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\obj\Debug\Web Security Backend Login Handler.pdb
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\bin\RSAClasses.dll
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\bin\RSAClasses.pdb

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="3f650c5f-a2a4-4d08-83cf-b3b2aee8fe31" name="Steven@2TAFFY 2012-04-25 10:53:45" runUser="2taffy\Steven" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="948a7d2c-a449-40cc-93d7-295f2060e854">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Steven_2TAFFY 2012-04-25 10_53_45">
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\bin\Web Security Backend Login Handler.dll" />
+      <DeploymentItem filename="C:\Users\Steven\Desktop\RSAClasses\RSAClasses\bin\Debug\RSAClasses.dll" />
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-04-25T10:53:45.6250000-04:00" queuing="2012-04-25T10:53:45.7343750-04:00" start="2012-04-25T10:53:45.8125000-04:00" finish="2012-04-25T10:53:46.5312500-04:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="6" executed="6" passed="6" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="is_ip_lockedTest_users_should_not_lock_out_an_unknown_ip" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="7d16d515-8857-ef40-7b11-d26c075d3e87">
+      <Execution id="c027fc5c-9a43-49db-a22d-f432866c57f5" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.Service_ManagerTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="is_ip_lockedTest_users_should_not_lock_out_an_unknown_ip" />
+    </UnitTest>
+    <UnitTest name="record_failed_attemptTest_should_update_ip_record_when_ip_is_found" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="2f6d8dc3-e175-6550-f600-a0a25a455edb">
+      <Execution id="cb2e1a35-a333-42f2-8d84-49eb8d4eccf4" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.Service_ManagerTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="record_failed_attemptTest_should_update_ip_record_when_ip_is_found" />
+    </UnitTest>
+    <UnitTest name="is_ip_lockedTest_users_should_lock_out_after_four_attempts_even_though_time_between_attempts" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="c6fdb9bc-0e83-4bbf-fff2-a9c35967cc4a">
+      <Execution id="ecca635f-b4c5-4f55-9137-f53731e685d2" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.Service_ManagerTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="is_ip_lockedTest_users_should_lock_out_after_four_attempts_even_though_time_between_attempts" />
+    </UnitTest>
+    <UnitTest name="record_failed_attemptTest_should_create_a_new_ip_record_when_none_is_found" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="9979932b-cf13-fa30-2fc9-ff4981bbae56">
+      <Execution id="93075c10-beba-4607-9ae4-0f2247482a7d" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.Service_ManagerTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="record_failed_attemptTest_should_create_a_new_ip_record_when_none_is_found" />
+    </UnitTest>
+    <UnitTest name="is_ip_lockedTest_users_should_unlocklock_out_after_four_attempts_if_unlock_period_has_been_exceeded" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="451ca797-209b-dee9-6367-89f6f7d14060">
+      <Execution id="e42d0838-c729-40e4-8b89-0b7606aef032" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.Service_ManagerTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="is_ip_lockedTest_users_should_unlocklock_out_after_four_attempts_if_unlock_period_has_been_exceeded" />
+    </UnitTest>
+    <UnitTest name="is_ip_lockedTest_users_should_not_lock_out_after_three_attempts_when_time_between_attempts_is_greater_then_needed" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="54c985bb-e719-f23b-e3d5-9f6d52ae4c84">
+      <Execution id="9ddd49df-72e2-4b71-a064-444417a6b69d" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.Service_ManagerTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="is_ip_lockedTest_users_should_not_lock_out_after_three_attempts_when_time_between_attempts_is_greater_then_needed" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="2f6d8dc3-e175-6550-f600-a0a25a455edb" executionId="cb2e1a35-a333-42f2-8d84-49eb8d4eccf4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="451ca797-209b-dee9-6367-89f6f7d14060" executionId="e42d0838-c729-40e4-8b89-0b7606aef032" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="54c985bb-e719-f23b-e3d5-9f6d52ae4c84" executionId="9ddd49df-72e2-4b71-a064-444417a6b69d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7d16d515-8857-ef40-7b11-d26c075d3e87" executionId="c027fc5c-9a43-49db-a22d-f432866c57f5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9979932b-cf13-fa30-2fc9-ff4981bbae56" executionId="93075c10-beba-4607-9ae4-0f2247482a7d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c6fdb9bc-0e83-4bbf-fff2-a9c35967cc4a" executionId="ecca635f-b4c5-4f55-9137-f53731e685d2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="cb2e1a35-a333-42f2-8d84-49eb8d4eccf4" testId="2f6d8dc3-e175-6550-f600-a0a25a455edb" testName="record_failed_attemptTest_should_update_ip_record_when_ip_is_found" computerName="2TAFFY" duration="00:00:00.0423195" startTime="2012-04-25T10:53:45.8437500-04:00" endTime="2012-04-25T10:53:46.3281250-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cb2e1a35-a333-42f2-8d84-49eb8d4eccf4">
+    </UnitTestResult>
+    <UnitTestResult executionId="e42d0838-c729-40e4-8b89-0b7606aef032" testId="451ca797-209b-dee9-6367-89f6f7d14060" testName="is_ip_lockedTest_users_should_unlocklock_out_after_four_attempts_if_unlock_period_has_been_exceeded" computerName="2TAFFY" duration="00:00:00.0028608" startTime="2012-04-25T10:53:46.3281250-04:00" endTime="2012-04-25T10:53:46.3437500-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e42d0838-c729-40e4-8b89-0b7606aef032">
+    </UnitTestResult>
+    <UnitTestResult executionId="9ddd49df-72e2-4b71-a064-444417a6b69d" testId="54c985bb-e719-f23b-e3d5-9f6d52ae4c84" testName="is_ip_lockedTest_users_should_not_lock_out_after_three_attempts_when_time_between_attempts_is_greater_then_needed" computerName="2TAFFY" duration="00:00:00.0008931" startTime="2012-04-25T10:53:46.3593750-04:00" endTime="2012-04-25T10:53:46.3750000-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9ddd49df-72e2-4b71-a064-444417a6b69d">
+    </UnitTestResult>
+    <UnitTestResult executionId="c027fc5c-9a43-49db-a22d-f432866c57f5" testId="7d16d515-8857-ef40-7b11-d26c075d3e87" testName="is_ip_lockedTest_users_should_not_lock_out_an_unknown_ip" computerName="2TAFFY" duration="00:00:00.0154934" startTime="2012-04-25T10:53:46.3750000-04:00" endTime="2012-04-25T10:53:46.4218750-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c027fc5c-9a43-49db-a22d-f432866c57f5">
+    </UnitTestResult>
+    <UnitTestResult executionId="93075c10-beba-4607-9ae4-0f2247482a7d" testId="9979932b-cf13-fa30-2fc9-ff4981bbae56" testName="record_failed_attemptTest_should_create_a_new_ip_record_when_none_is_found" computerName="2TAFFY" duration="00:00:00.0084812" startTime="2012-04-25T10:53:46.4375000-04:00" endTime="2012-04-25T10:53:46.4531250-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="93075c10-beba-4607-9ae4-0f2247482a7d">
+    </UnitTestResult>
+    <UnitTestResult executionId="ecca635f-b4c5-4f55-9137-f53731e685d2" testId="c6fdb9bc-0e83-4bbf-fff2-a9c35967cc4a" testName="is_ip_lockedTest_users_should_lock_out_after_four_attempts_even_though_time_between_attempts" computerName="2TAFFY" duration="00:00:00.0010785" startTime="2012-04-25T10:53:46.4687500-04:00" endTime="2012-04-25T10:53:46.4843750-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ecca635f-b4c5-4f55-9137-f53731e685d2">
+    </UnitTestResult>
+  </Results>
+</TestRun>

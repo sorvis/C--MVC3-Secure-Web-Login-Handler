@@ -81,6 +81,10 @@
     <Compile Include="validate_keyTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Desktop\RSAClasses\RSAClasses\RSAClasses.csproj">
+      <Project>{707A39C5-D485-443C-A666-C20882092348}</Project>
+      <Name>RSAClasses</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Web Security Backend Login Handler\Web Security Backend Login Handler.csproj">
       <Project>{6475C012-0DC6-4CD4-8562-3BFD761A0F91}</Project>
       <Name>Web Security Backend Login Handler</Name>

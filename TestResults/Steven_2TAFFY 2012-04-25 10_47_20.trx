@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="e46bfa85-12d8-4c6b-acd7-055e21a8f0d2" name="Steven@2TAFFY 2012-04-25 10:47:20" runUser="2taffy\Steven" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="948a7d2c-a449-40cc-93d7-295f2060e854">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Steven_2TAFFY 2012-04-25 10_47_20">
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\bin\Web Security Backend Login Handler.dll" />
+      <DeploymentItem filename="C:\Users\Steven\Desktop\RSAClasses\RSAClasses\bin\Debug\RSAClasses.dll" />
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-04-25T10:47:20.1435546-04:00" queuing="2012-04-25T10:47:22.1279296-04:00" start="2012-04-25T10:47:22.4560546-04:00" finish="2012-04-25T10:48:05.2519531-04:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="2TAFFY" outcome="Error" timestamp="2012-04-25T10:48:05.2480468-04:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="is_ip_lockedTest_users_should_lock_out_after_three_attempts_even_though_time_between_attempts_is_greater_then_needed" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="1042707c-b038-650e-4ce3-c10fe90f6b37">
+      <Execution id="8d67f438-3ae9-43e0-a126-7a8c54e5f6b4" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.Service_ManagerTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="is_ip_lockedTest_users_should_lock_out_after_three_attempts_even_though_time_between_attempts_is_greater_then_needed" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="1042707c-b038-650e-4ce3-c10fe90f6b37" executionId="8d67f438-3ae9-43e0-a126-7a8c54e5f6b4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="8d67f438-3ae9-43e0-a126-7a8c54e5f6b4" testId="1042707c-b038-650e-4ce3-c10fe90f6b37" testName="is_ip_lockedTest_users_should_lock_out_after_three_attempts_even_though_time_between_attempts_is_greater_then_needed" computerName="2TAFFY" duration="00:00:42.5136719" startTime="2012-04-25T10:47:22.7373046-04:00" endTime="2012-04-25T10:48:05.2509765-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8d67f438-3ae9-43e0-a126-7a8c54e5f6b4">
+    </UnitTestResult>
+  </Results>
+</TestRun>
