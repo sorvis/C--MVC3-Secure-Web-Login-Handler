@@ -33,6 +33,9 @@ namespace Web_Security_Backend_Login_Handler.Controllers
 
         public ActionResult initialize(string remote_public_key, long shared_key)
         {
+            string strHostName = System.Net.Dns.GetHostName();
+            string clientIPAddress = System.Net.Dns.GetHostAddresses(strHostName).GetValue(0).ToString();
+
             string cleaned_pub_key = validate_key.clean_key(remote_public_key);
             long long_remote_pub_key;
             if (validate_key.validate(remote_public_key) &&
@@ -61,6 +64,9 @@ namespace Web_Security_Backend_Login_Handler.Controllers
 
         public ActionResult authenticate(string data, int id)
         {
+            string strHostName = System.Net.Dns.GetHostName();
+            string clientIPAddress = System.Net.Dns.GetHostAddresses(strHostName).GetValue(0).ToString();
+
             Session_Holder session = _db.get_session(id);
             if (session == null || session.expired || !validate_key.validate(data))
             {
@@ -75,7 +81,7 @@ namespace Web_Security_Backend_Login_Handler.Controllers
 
             if (session.validate_login(db_calculatedKey.convert_list_of_calculatedKey_to_Hashtable(login_attempt.Get_Login_Data)))
             {
-                ViewBag.message = "Nuclear missle set to launch. Targeted impact point is: 40.771950, -80.321137 Estimated time of impact: 5 minutes radius of effect 5-miles.";
+                ViewBag.message = "Nuclear missle set to launch. Targeted impact point is: 40.771950, -80.321137 Estimated time of impact: 5 minutes. Radius of effect 5-miles.";
             }
             else
             {
