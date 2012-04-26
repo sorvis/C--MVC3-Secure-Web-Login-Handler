@@ -69,6 +69,7 @@ namespace Web_Security_Backend_Login_Handler.Controllers
             if (_service_manager.is_ip_locked(clientIPAddress))
             {
                 ViewBag.message = "Server has been locked!";
+                _service_manager.record_failed_attempt(clientIPAddress);
                 save_Service_Manager();
                 return View();
             }

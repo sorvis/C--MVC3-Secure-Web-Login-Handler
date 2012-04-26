@@ -1,0 +1,25 @@
+﻿@model Web_Security_Backend_Login_Handler.Controllers.Denial_Service_Protection.Service_Manager
+
+@{
+    ViewBag.Title = "index";
+}
+
+<h2>Service Manager</h2>
+
+
+
+<table border="1">
+@foreach (Web_Security_Backend_Login_Handler.Controllers.Denial_Service_Protection.log_ip_fail item in ((Web_Security_Backend_Login_Handler.Controllers.Denial_Service_Protection.Service_Manager)ViewBag.Service_Manager).Attempts)
+{
+    <tr>
+        <th>IP Address</th>
+        <th>Number Of Failed Tries</th>
+        <th>Date Of Last Attempt</th>
+    </tr>
+    <tr>
+        <td>@item.IP_Address</td>
+        <td>@item.Fail_Count</td>
+        <td>@item.Last_Attempt</td>
+    </tr>
+}
+</table>

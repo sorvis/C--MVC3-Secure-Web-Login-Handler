@@ -9,11 +9,11 @@ using System.Web.Hosting;
 
 namespace Web_Security_Backend_Login_Handler.Controllers
 {
-    public class Service_Manager_Controller : Controller
+    public class Service_ManagerController : Controller
     {
         private Service_Manager _service_manager;
         private string _service_manager_save_file;
-        public Service_Manager_Controller()
+        public Service_ManagerController()
         {
             _service_manager_save_file = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "temp_Service_Manager.data");
             _service_manager = load_Service_Manger();
