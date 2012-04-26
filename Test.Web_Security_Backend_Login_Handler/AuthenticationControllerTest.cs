@@ -143,7 +143,12 @@ namespace Test.Web_Security_Backend_Login_Handler
         [TestMethod()]
         public void authenticateTest_should_gracefully_handle_a_bad_message_after_decryption()
         {
-            Assert.Inconclusive();
+            Database_mock_up db = new Database_mock_up(_sample_remote_pub_key, _sample_remote_shared_key);
+            AuthenticationController target = new AuthenticationController(db);
+            int id = db.sessionID;
+            string data = validate_key.dirty_key(encrypt_message(db.get_session(id), "junk"));
+            ViewResult actual = target.authenticate(data, id) as ViewResult;
+            Assert.AreNotEqual(_good_login_message, actual.ViewBag.message);
         }
 
         [TestMethod()]

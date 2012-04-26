@@ -78,7 +78,8 @@ namespace Web_Security_Backend_Login_Handler.Controllers
             if (validate_key.validate(shared_key) &&
                 Int64.TryParse(validate_key.clean_key(shared_key), out long_remote_shared_key)&&
                 _db.check_for_unique_pub_and_shared_key(remote_public_key, long_remote_shared_key) &&
-                _db.check_that_initialize_is_not_locked())
+                _db.check_that_initialize_is_not_locked()&&
+                long_remote_shared_key > remote_public_key)
             {
                 // incoming data seems to be good
             }
@@ -119,7 +120,18 @@ namespace Web_Security_Backend_Login_Handler.Controllers
             data = validate_key.clean_key(data);
             _db.expire_session(id);
             string decrypted_data = encryption_wrapper.decrypt_message(session.server_key.private_key, session.server_key.shared_key, data);
-            Raw_Data_Builder login_attempt = new Raw_Data_Builder(decrypted_data);
+            Raw_Data_Builder login_attempt;
+            try
+            {
+                login_attempt = new Raw_Data_Builder(decrypted_data);
+            }
+            catch // if something goes wrong with message parsing boot the user
+            {
+                ViewBag.message = "Failed login";
+                _service_manager.record_failed_attempt(clientIPAddress);
+                save_Service_Manager();
+                return View();
+            }
 
             if (session.validate_login(db_calculatedKey.convert_list_of_calculatedKey_to_Hashtable(login_attempt.Get_Login_Data)))
             {
