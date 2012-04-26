@@ -9,7 +9,7 @@ namespace Web_Security_Backend_Login_Handler.Models
     {
         public static bool validate(string key)
         {
-            if (key[2] == '2' && key[7] == '9')
+            if (key.Length >= 8 && key[2] == '2' && key[7] == '9')
             {
                 return true;
             }

@@ -40,11 +40,12 @@ namespace Web_Security_Backend_Login_Handler.Models
                 this.server_key = encryption_wrapper.get_keys();
                 counter++;
             }
-            while (!db.check_for_unique_pub_key(this.server_key.public_key)||counter >100);
+            while (!db.check_for_unique_pub_and_shared_key(this.server_key.public_key, this.server_key.shared_key)||counter >100);
 
             this.remote_pub_key = remote_key;
             this.remote_shared_key = remote_shared_key;
-            this.encrypted_message = encryption_wrapper.encrpty_message(Convert.ToString(remote_key),
+            string messageToBeEncrypted = "ID=" + session_id + ";" + "PUB_KEY=" + server_key.public_key + ";" + "SHARED_KEY=" + server_key.shared_key + ";" + data;
+            this.encrypted_message = encryption_wrapper.encrypt_message(remote_key, remote_shared_key,
                 "ID=" + session_id + ";" + "PUB_KEY=" + server_key.public_key + ";"+"SHARED_KEY="+server_key.shared_key+";"+data);
         }
 

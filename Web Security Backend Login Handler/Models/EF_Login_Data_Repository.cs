@@ -35,10 +35,10 @@ namespace Web_Security_Backend_Login_Handler.Models
         /// </summary>
         /// <param name="key"></param>
         /// <returns>True if the key has never been used before</returns>
-        public bool check_for_unique_pub_key(long key)
+        public bool check_for_unique_pub_and_shared_key(long pub_key, long shared_key)
         {
-            Session_Holder remote = _db.Session.FirstOrDefault(d => d.remote_pub_key == key);
-            Server_keys server = _db.server_keys.FirstOrDefault(d => d.public_key == key);
+            Session_Holder remote = _db.Session.FirstOrDefault(d => d.remote_pub_key == pub_key && d.remote_shared_key == shared_key);
+            Server_keys server = _db.server_keys.FirstOrDefault(d => d.public_key == pub_key && d.shared_key == shared_key);
             if (remote != null || server != null)
             {
                 return false;
@@ -84,7 +84,7 @@ namespace Web_Security_Backend_Login_Handler.Models
             _db.SaveChanges();
         }
 
-        public void store_failed_initialize_attempt(string public_key, long shared_key)
+        public void store_failed_initialize_attempt(string public_key, string shared_key)
         {
             store_failed_initialize_attempt(new data_failed_login_attempt(public_key, shared_key));
         }
@@ -108,6 +108,22 @@ namespace Web_Security_Backend_Login_Handler.Models
         {
             get_session(id).expired = true;
             _db.SaveChanges();
+        }
+
+
+        void IDataRepository.store_session(Session_Holder session)
+        {
+            throw new NotImplementedException();
+        }
+
+        Session_Holder IDataRepository.get_session(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IDataRepository.expire_session(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -67,6 +67,7 @@
     <Compile Include="Controllers\Denial_Service_Protection\log_ip_fail.cs" />
     <Compile Include="Controllers\Denial_Service_Protection\ObjectSerializing.cs" />
     <Compile Include="Controllers\Denial_Service_Protection\Service_Manager.cs" />
+    <Compile Include="Controllers\Service_Manager_Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -171,6 +172,9 @@
       <Project>{707A39C5-D485-443C-A666-C20882092348}</Project>
       <Name>RSAClasses</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Service_Manager_\index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

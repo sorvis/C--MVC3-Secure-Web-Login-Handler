@@ -10,10 +10,11 @@ namespace Web_Security_Backend_Login_Handler.Models
     {
         //TODO: need to impliment with Scotts encrption
 
-        public static string encrpty_message(string public_key, string message)
+        public static string encrypt_message(long public_key, long shared_key, string message)
         {
-            long long_pub_key = Int64.Parse(public_key);
-            return message;
+            RSA rsa = new RSA();
+            rsa.setPublicKey((ulong)(public_key), (ulong)shared_key);
+            return rsa.encrypt(message);
         }
         public static string decrypt_message(string private_key, long remote_shared_key, string message)
         {
@@ -21,14 +22,22 @@ namespace Web_Security_Backend_Login_Handler.Models
         }
         public static string decrypt_message(long private_key, long remote_shared_key, string message)
         {
-            return message;
+            RSA rsa = new RSA();
+            rsa.setPrivateKey((ulong)private_key, (ulong)remote_shared_key);
+            return rsa.decrypt(message);
         }
         public static Server_keys get_keys()
         {
-             //RSA rsa = new RSA(
+            RSA rsa = new RSA(Primes.getPrime(), Primes.getPrime());
+            ulong public_key = 0;
+            ulong private_key =0;
+            ulong shared_key = 0;
+            rsa.getPublicKey(ref public_key, ref shared_key);
+            rsa.getPrivateKey(ref private_key, ref shared_key);
+
             // should be using scotts key generator
-            Random rand = new Random();
-            return new Server_keys((Int64)rand.Next(100), (Int64)rand.Next(100), (Int64)rand.Next(100));
+            //Random rand = new Random();
+            return new Server_keys((long)public_key, (long)private_key, (long)shared_key);
         }
     }
 }

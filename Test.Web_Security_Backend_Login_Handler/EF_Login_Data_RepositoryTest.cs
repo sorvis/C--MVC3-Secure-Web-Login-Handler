@@ -65,10 +65,12 @@ namespace Test.Web_Security_Backend_Login_Handler
         //
         #endregion
 
-        private long _sample_pub_key = 23345345;
-        private long _sample_priv_key = 3465544;
-        private long _sample_shared_key = 89579854;
-        private long _sample_remote_key = 0980984321;
+        private long _sample_pub_key = 5;
+        private long _sample_priv_key = 602381;
+        private long _sample_shared_key = 1005973;
+        private long _sample_remote_pub_key = 3;
+        private long _sample_remote_priv_key = 918667;
+        private long _sample_remote_shared_key=1380361;
 
         
         [TestMethod()]
@@ -81,7 +83,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             long key = 34534534534545;
             bool expected = true;
             bool actual;
-            actual = target.check_for_unique_pub_key(key);
+            actual = target.check_for_unique_pub_and_shared_key(4, key);
             Assert.AreEqual(expected, actual);
         }
 
@@ -91,11 +93,15 @@ namespace Test.Web_Security_Backend_Login_Handler
             DataEntities db = new DataEntities();
             EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
             target.reset_db();
-            Server_keys server_key = new Server_keys(_sample_pub_key, _sample_priv_key, _sample_shared_key);
-            db.server_keys.Add(server_key);
+            //Server_keys server_key = new Server_keys(_sample_pub_key, _sample_priv_key, _sample_shared_key);
+            //db.server_keys.Add(server_key);
+            Session_Holder session = new Session_Holder();
+            session.remote_pub_key = _sample_pub_key;
+            session.remote_shared_key = _sample_shared_key;
+            db.Session.Add(session);
             db.SaveChanges();
 
-            Assert.IsFalse(target.check_for_unique_pub_key(_sample_pub_key));
+            Assert.IsFalse(target.check_for_unique_pub_and_shared_key(_sample_pub_key, _sample_shared_key));
         }
 
         [TestMethod()]
@@ -104,10 +110,10 @@ namespace Test.Web_Security_Backend_Login_Handler
             DataEntities db = new DataEntities();
             EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
             target.reset_db();
-            Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
+            Session_Holder session = new Session_Holder(target, _sample_remote_pub_key, _sample_remote_shared_key);
             target.store_session(session);
 
-            Assert.IsFalse(target.check_for_unique_pub_key(_sample_remote_key));
+            Assert.IsFalse(target.check_for_unique_pub_and_shared_key(_sample_remote_pub_key, _sample_remote_shared_key));
         }
 
         [TestMethod()]
@@ -116,10 +122,10 @@ namespace Test.Web_Security_Backend_Login_Handler
             DataEntities db = new DataEntities();
             EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
             target.reset_db();
-            Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
+            Session_Holder session = new Session_Holder(target, _sample_remote_pub_key, _sample_remote_shared_key);
             target.store_session(session);
 
-            Assert.IsTrue(target.check_for_unique_pub_key(_sample_pub_key));
+            Assert.IsTrue(target.check_for_unique_pub_and_shared_key(_sample_pub_key, _sample_remote_shared_key));
         }
 
         [TestMethod()]
@@ -132,7 +138,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             db.server_keys.Add(server_key);
             db.SaveChanges();
 
-            Assert.IsTrue(target.check_for_unique_pub_key(_sample_remote_key));
+            Assert.IsTrue(target.check_for_unique_pub_and_shared_key(_sample_remote_pub_key, _sample_shared_key));
         }
 
         [TestMethod()]
@@ -155,7 +161,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             DataEntities db = new DataEntities();
             EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
             target.reset_db();
-            Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
+            Session_Holder session = new Session_Holder(target, _sample_remote_pub_key, _sample_shared_key);
             target.store_session(session);
 
             Assert.IsFalse(target.check_for_unique_data_string(session.data));
@@ -181,7 +187,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             DataEntities db = new DataEntities();
             EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
             target.reset_db();
-            Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
+            Session_Holder session = new Session_Holder(target, _sample_remote_pub_key, _sample_shared_key);
             target.store_session(session);
 
             int id = session.session_id;
@@ -215,7 +221,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             DataEntities db = new DataEntities();
             EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
             target.reset_db();
-            Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
+            Session_Holder session = new Session_Holder(target, _sample_remote_pub_key, _sample_shared_key);
             target.store_session(session);
 
             int id = session.session_id;
@@ -230,7 +236,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             DataEntities db = new DataEntities();
             EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
             target.reset_db();
-            Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
+            Session_Holder session = new Session_Holder(target, _sample_remote_pub_key, _sample_shared_key);
             target.store_session(session);
 
             int id = session.session_id;
@@ -262,7 +268,7 @@ namespace Test.Web_Security_Backend_Login_Handler
 
             string public_key = "this key is fake";
             long shared_key = _sample_shared_key;
-            data_failed_login_attempt attempt = new data_failed_login_attempt(public_key, shared_key);
+            data_failed_login_attempt attempt = new data_failed_login_attempt(public_key, Convert.ToString(shared_key));
             target.store_failed_initialize_attempt(attempt);
             Assert.IsNotNull(db.failed_logins.Find(attempt.id));
         }
@@ -274,7 +280,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
             target.reset_db();
 
-            Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
+            Session_Holder session = new Session_Holder(target, _sample_remote_pub_key, _sample_shared_key);
             target.store_session(session);
             Assert.IsNotNull(target.get_session(session.session_id));
         }
@@ -286,15 +292,15 @@ namespace Test.Web_Security_Backend_Login_Handler
             EF_Login_Data_Repository target = new EF_Login_Data_Repository(db);
             target.reset_db();
 
-            Session_Holder session = new Session_Holder(target, _sample_remote_key, _sample_shared_key);
+            Session_Holder session = new Session_Holder(target, _sample_remote_pub_key, _sample_shared_key);
             target.store_session(session);
             Assert.IsNotNull(target.get_session(session.session_id));
 
-            session = new Session_Holder(target, _sample_remote_key+1, _sample_shared_key+1);
+            session = new Session_Holder(target, _sample_remote_pub_key+1, _sample_shared_key+1);
             target.store_session(session);
             Assert.IsNotNull(target.get_session(session.session_id));
 
-            session = new Session_Holder(target, _sample_remote_key + 2, _sample_shared_key + 2);
+            session = new Session_Holder(target, _sample_remote_pub_key + 2, _sample_shared_key + 2);
             target.store_session(session);
             Assert.IsNotNull(target.get_session(session.session_id));
         }

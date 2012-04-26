@@ -17,25 +17,13 @@ namespace Test.Web_Security_Backend_Login_Handler
         public Hashtable calculatedKey;
         public string loginData;
 
-        public Database_mock_up()
+        public Database_mock_up(long remote_pub_key, long remote_shared_key)
         {
-            Session_Holder temp_session = new Session_Holder(this, 1234123435, 23412341234);
+            Session_Holder temp_session = new Session_Holder(this, remote_pub_key, remote_shared_key);
             sessionID = temp_session.session_id;
             calculatedKey = db_calculatedKey.convert_list_of_calculatedKey_to_Hashtable(temp_session.calulated_key);
             loginData = temp_session.data;
             _sessions.Add(temp_session);
-        }
-
-        public bool check_for_unique_pub_key(long key)
-        {
-            foreach (Session_Holder session in _sessions)
-            {
-                if (session.remote_pub_key == key)
-                {
-                    return false;
-                }
-            }
-            return true;
         }
 
         public bool check_for_unique_session_id(int id)
@@ -67,7 +55,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             return _database_is_not_locked;
         }
 
-        public void store_failed_initialize_attempt(string public_key, long shared_key)
+        public void store_failed_initialize_attempt(string public_key, string shared_key)
         {
             _attempts.Add(new data_failed_login_attempt(public_key, shared_key));
         }
@@ -96,6 +84,19 @@ namespace Test.Web_Security_Backend_Login_Handler
         public bool is_session_expired(int id)
         {
             return get_session(id).expired;
+        }
+
+        public bool check_for_unique_pub_and_shared_key(long pub_key, long shared_key)
+        {
+            foreach (Session_Holder session in _sessions)
+            {
+                if (session.remote_pub_key == pub_key||session.remote_shared_key == shared_key
+                    ||session.server_key.public_key==pub_key||session.server_key.shared_key==shared_key)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

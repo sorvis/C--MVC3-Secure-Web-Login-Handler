@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="87b306b2-c131-4e01-b856-a94e13b14312" name="Steven@2TAFFY 2012-04-25 20:10:14" runUser="2taffy\Steven" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="948a7d2c-a449-40cc-93d7-295f2060e854">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Steven_2TAFFY 2012-04-25 20_10_14">
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\bin\Web Security Backend Login Handler.dll" />
+      <DeploymentItem filename="C:\Users\Steven\Desktop\RSAClasses\RSAClasses\bin\Debug\RSAClasses.dll" />
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-04-25T20:10:14.2285156-04:00" queuing="2012-04-25T20:10:14.3613281-04:00" start="2012-04-25T20:10:14.4746093-04:00" finish="2012-04-25T20:10:15.8339843-04:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="initializeTest_when_given_good_key_should_return_real_data" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="a9bb2a96-fdf6-f082-afa7-d86f78b1f65e">
+      <Execution id="d90cc664-e3e3-417d-afe2-1e2570cb9ac2" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.AuthenticationControllerTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="initializeTest_when_given_good_key_should_return_real_data" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="a9bb2a96-fdf6-f082-afa7-d86f78b1f65e" executionId="d90cc664-e3e3-417d-afe2-1e2570cb9ac2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="d90cc664-e3e3-417d-afe2-1e2570cb9ac2" testId="a9bb2a96-fdf6-f082-afa7-d86f78b1f65e" testName="initializeTest_when_given_good_key_should_return_real_data" computerName="2TAFFY" duration="00:00:00.1809631" startTime="2012-04-25T20:10:14.6464843-04:00" endTime="2012-04-25T20:10:15.6347656-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d90cc664-e3e3-417d-afe2-1e2570cb9ac2">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Test.Web_Security_Backend_Login_Handler.AuthenticationControllerTest.initializeTest_when_given_good_key_should_return_real_data threw exception: 
+System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length</Message>
+          <StackTrace>    at System.String.InternalSubStringWithChecks(Int32 startIndex, Int32 length, Boolean fAlwaysCopy)
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at Web_Security_Backend_Login_Handler.Models.validate_key.clean_key(String key) in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\Models\validate_key.cs:line 23
+   at Web_Security_Backend_Login_Handler.Controllers.AuthenticationController.initialize(String remote_public_key, Int64 shared_key) in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\Controllers\AuthenticationController.cs:line 76
+   at Test.Web_Security_Backend_Login_Handler.AuthenticationControllerTest.initializeTest_when_given_good_key_should_return_real_data() in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Test.Web_Security_Backend_Login_Handler\AuthenticationControllerTest.cs:line 84
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

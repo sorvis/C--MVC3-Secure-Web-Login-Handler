@@ -94,5 +94,25 @@ namespace Test.Web_Security_Backend_Login_Handler
             actual = validate_key.clean_key(key);
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod()]
+        public void dirty_keyTest_on_original_of_size_6()
+        {
+            string key = "259081";
+            string expected = "25290819";
+            string actual;
+            actual = validate_key.dirty_key(key);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void clean_keyTest_on_original_of_size_6()
+        {
+            string key = "25290819";
+            string expected = "259081";
+            string actual;
+            actual = validate_key.clean_key(key);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

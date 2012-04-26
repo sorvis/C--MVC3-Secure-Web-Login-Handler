@@ -61,7 +61,7 @@ namespace Web_Security_Backend_Login_Handler.Controllers
         //
         // GET: /authentication/initialize?remote_public_key=43235359345345345&shared_key=4325465423452345&
 
-        public ActionResult initialize(string remote_public_key, long shared_key)
+        public ActionResult initialize(long remote_public_key, string shared_key)
         {
             string strHostName = System.Net.Dns.GetHostName();
             string clientIPAddress = System.Net.Dns.GetHostAddresses(strHostName).GetValue(0).ToString();
@@ -73,25 +73,24 @@ namespace Web_Security_Backend_Login_Handler.Controllers
                 return View();
             }
 
-            string cleaned_pub_key = validate_key.clean_key(remote_public_key);
-            long long_remote_pub_key;
-            if ( validate_key.validate(remote_public_key) &&
-                Int64.TryParse(cleaned_pub_key, out long_remote_pub_key)&&
-                _db.check_for_unique_pub_key(long_remote_pub_key) &&
+            long long_remote_shared_key;
+            if (validate_key.validate(shared_key) &&
+                Int64.TryParse(validate_key.clean_key(shared_key), out long_remote_shared_key)&&
+                _db.check_for_unique_pub_and_shared_key(remote_public_key, long_remote_shared_key) &&
                 _db.check_that_initialize_is_not_locked())
             {
                 // incoming data seems to be good
             }
             else//somone tried passing in a bad key
             {
-                _db.store_failed_initialize_attempt(remote_public_key, shared_key);
+                _db.store_failed_initialize_attempt(Convert.ToString(remote_public_key), shared_key);
                 _service_manager.record_failed_attempt(clientIPAddress);
                 ViewBag.message = "lasdflj2fjlwjefljawlj3";
                 save_Service_Manager();
                 return View();
             }
 
-            Session_Holder session = new Session_Holder(_db, long_remote_pub_key, shared_key);
+            Session_Holder session = new Session_Holder(_db, remote_public_key, long_remote_shared_key);
             _db.store_session(session);
             ViewBag.message = session.encrypted_message;
 
@@ -118,7 +117,7 @@ namespace Web_Security_Backend_Login_Handler.Controllers
 
             data = validate_key.clean_key(data);
             _db.expire_session(id);
-            string decrypted_data = encryption_wrapper.decrypt_message(session.server_key.private_key, session.remote_shared_key, data);
+            string decrypted_data = encryption_wrapper.decrypt_message(session.server_key.private_key, session.server_key.shared_key, data);
             Raw_Data_Builder login_attempt = new Raw_Data_Builder(decrypted_data);
 
             if (session.validate_login(db_calculatedKey.convert_list_of_calculatedKey_to_Hashtable(login_attempt.Get_Login_Data)))
