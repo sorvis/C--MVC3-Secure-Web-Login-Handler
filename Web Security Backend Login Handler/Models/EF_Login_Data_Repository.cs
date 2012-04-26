@@ -109,21 +109,5 @@ namespace Web_Security_Backend_Login_Handler.Models
             get_session(id).expired = true;
             _db.SaveChanges();
         }
-
-
-        void IDataRepository.store_session(Session_Holder session)
-        {
-            throw new NotImplementedException();
-        }
-
-        Session_Holder IDataRepository.get_session(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IDataRepository.expire_session(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

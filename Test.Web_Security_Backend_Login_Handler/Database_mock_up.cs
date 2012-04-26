@@ -90,8 +90,8 @@ namespace Test.Web_Security_Backend_Login_Handler
         {
             foreach (Session_Holder session in _sessions)
             {
-                if (session.remote_pub_key == pub_key||session.remote_shared_key == shared_key
-                    ||session.server_key.public_key==pub_key||session.server_key.shared_key==shared_key)
+                if (session.remote_pub_key == pub_key&&session.remote_shared_key == shared_key
+                    ||session.server_key.public_key==pub_key&&session.server_key.shared_key==shared_key)
                 {
                     return false;
                 }

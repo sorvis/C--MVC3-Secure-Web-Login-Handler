@@ -79,9 +79,9 @@ namespace Test.Web_Security_Backend_Login_Handler
         public void initializeTest_when_given_good_key_should_return_real_data()
         {
             AuthenticationController target = new AuthenticationController(new Database_mock_up(_sample_remote_pub_key, _sample_remote_shared_key));
-            string remote_public_key =  Convert.ToString(_sample_remote_pub_key); // includes key checking items
+            string remote_public_key =  Convert.ToString(_sample_pub_key); // includes key checking items
             long shared_key = _sample_remote_shared_key;
-            ViewResult actual = target.initialize(Int64.Parse(remote_public_key), Convert.ToString( shared_key)) as ViewResult;
+            ViewResult actual = target.initialize(Int64.Parse(remote_public_key), validate_key.dirty_key(Convert.ToString( shared_key))) as ViewResult;
             Assert.IsNotNull(actual.ViewBag.message);
             Assert.AreNotEqual("lasdflj2fjlwjefljawlj3", actual.ViewBag.message);
         }
@@ -101,9 +101,8 @@ namespace Test.Web_Security_Backend_Login_Handler
         public void initializeTest_when_given_string_in_pubKey_should_return_fake_data()
         {
             AuthenticationController target = new AuthenticationController(new Database_mock_up(_sample_remote_pub_key, _sample_remote_shared_key));
-            string remote_public_key = "43235359asdfasdf5"; // includes key checking items
             long shared_key = 4325465423452345;
-            ViewResult actual = target.initialize(Int64.Parse(remote_public_key), Convert.ToString(shared_key)) as ViewResult;
+            ViewResult actual = target.initialize(_sample_remote_pub_key, Convert.ToString(shared_key)) as ViewResult;
             Assert.IsNotNull(actual.ViewBag.message);
             Assert.AreEqual("lasdflj2fjlwjefljawlj3", actual.ViewBag.message);
         }
