@@ -73,6 +73,7 @@
     <Compile Include="AuthenticationControllerTest.cs" />
     <Compile Include="data_generatorTest.cs" />
     <Compile Include="EF_Login_Data_RepositoryTest.cs" />
+    <Compile Include="Gridbox_dataTest.cs" />
     <Compile Include="ObjectSerializingTest.cs" />
     <Compile Include="Picture1Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

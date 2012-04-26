@@ -44,7 +44,7 @@ namespace Web_Security_Backend_Login_Handler.Models.Display_Data.Stages
             foreach (Generic_data item in _dataList)
             {
                 item.pick_random_item();
-                multiplied_key *= item.calculate_key();
+                multiplied_key += item.calculate_key();
             }
 
             int quotient = multiplied_key / _number_of_gridboxes;
