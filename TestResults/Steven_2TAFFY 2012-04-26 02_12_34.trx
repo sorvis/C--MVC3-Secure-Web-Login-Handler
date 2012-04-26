@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="2d521413-ed18-4261-8016-1dc10aa392e9" name="Steven@2TAFFY 2012-04-26 02:12:34" runUser="2taffy\Steven" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="948a7d2c-a449-40cc-93d7-295f2060e854">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Steven_2TAFFY 2012-04-26 02_12_34">
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\bin\Web Security Backend Login Handler.dll" />
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\RSAClasses\RSAClasses\bin\Debug\RSAClasses.dll" />
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-04-26T02:12:34.0654297-04:00" queuing="2012-04-26T02:12:35.8876953-04:00" start="2012-04-26T02:12:36.2001953-04:00" finish="2012-04-26T02:13:23.1269531-04:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="data_generatorConstructorTest" storage="c:\users\steven\documents\visual studio 2010\projects\web security backend login handler\test.web_security_backend_login_handler\bin\debug\test.web_security_backend_login_handler.dll" id="a04901ac-a6e1-631a-f72e-e8766a695244">
+      <Execution id="012f43cf-215b-45b4-a0fe-930f5755c88a" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Web Security Backend Login Handler/Test.Web_Security_Backend_Login_Handler/bin/Debug/Test.Web_Security_Backend_Login_Handler.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.Web_Security_Backend_Login_Handler.data_generatorTest, Test.Web_Security_Backend_Login_Handler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="data_generatorConstructorTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="a04901ac-a6e1-631a-f72e-e8766a695244" executionId="012f43cf-215b-45b4-a0fe-930f5755c88a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="012f43cf-215b-45b4-a0fe-930f5755c88a" testId="a04901ac-a6e1-631a-f72e-e8766a695244" testName="data_generatorConstructorTest" computerName="2TAFFY" duration="00:00:44.8227403" startTime="2012-04-26T02:12:36.4658203-04:00" endTime="2012-04-26T02:13:22.9716797-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="012f43cf-215b-45b4-a0fe-930f5755c88a">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Test.Web_Security_Backend_Login_Handler.data_generatorTest.data_generatorConstructorTest threw exception: 
+System.DivideByZeroException: Attempted to divide by zero.</Message>
+          <StackTrace>    at Web_Security_Backend_Login_Handler.Models.Display_Data.Stages.Gridbox_data.pick_random_item() in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\Models\Display_Data\Stages\Gridbox_data.cs:line 50
+   at Web_Security_Backend_Login_Handler.Models.Display_Data.Stages.Gridbox_data..ctor(List`1 dataList, String gridbox_key_suffix, Int32 number_of_gridboxes) in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\Models\Display_Data\Stages\Gridbox_data.cs:line 21
+   at Web_Security_Backend_Login_Handler.Models.data_generator.initialize_data_list(Int32 master_key) in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\Models\Display_Data\data_generator.cs:line 41
+   at Web_Security_Backend_Login_Handler.Models.data_generator..ctor(IDataRepository db, Int32 key) in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\Models\Display_Data\data_generator.cs:line 35
+   at Web_Security_Backend_Login_Handler.Models.Session_Holder..ctor(IDataRepository db, Int64 remote_key, Int64 remote_shared_key) in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Web Security Backend Login Handler\Models\Session_Holder.cs:line 33
+   at Test.Web_Security_Backend_Login_Handler.Database_mock_up..ctor(Int64 remote_pub_key, Int64 remote_shared_key) in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Test.Web_Security_Backend_Login_Handler\Database_mock_up.cs:line 22
+   at Test.Web_Security_Backend_Login_Handler.data_generatorTest.data_generatorConstructorTest() in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Web Security Backend Login Handler\Test.Web_Security_Backend_Login_Handler\data_generatorTest.cs:line 98
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

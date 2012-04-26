@@ -14,7 +14,12 @@ namespace Test.Web_Security_Backend_Login_Handler
     [TestClass()]
     public class data_generatorTest
     {
-
+        private long _sample_pub_key = 5;
+        private long _sample_priv_key = 602381;
+        private long _sample_shared_key = 1005973;
+        private long _sample_remote_pub_key = 3;
+        private long _sample_remote_priv_key = 918667;
+        private long _sample_remote_shared_key = 1380361;
 
         private TestContext testContextInstance;
 
@@ -86,5 +91,14 @@ namespace Test.Web_Security_Backend_Login_Handler
         //    actual = data.getString();
         //    Assert.AreEqual(expected, actual);
         //}
+
+        [TestMethod()]
+        public void data_generatorConstructorTest_smoke_test()
+        {
+            IDataRepository db = new Database_mock_up(_sample_remote_pub_key, _sample_remote_shared_key);
+            int key = 1234567;
+            data_generator target = new data_generator(db, key);
+            Assert.IsNotNull(target.LoginData);
+        }
     }
 }

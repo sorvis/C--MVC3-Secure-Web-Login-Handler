@@ -29,7 +29,7 @@ namespace Web_Security_Backend_Login_Handler.Models
             List<db_calculatedKey> keyList = new List<db_calculatedKey>();
             foreach (DictionaryEntry item in hash)
             {
-                keyList.Add(new db_calculatedKey((string)item.Key, (string)item.Value));
+                keyList.Add(new db_calculatedKey((string)item.Key, Convert.ToString(item.Value)));
             }
             return keyList;
         }

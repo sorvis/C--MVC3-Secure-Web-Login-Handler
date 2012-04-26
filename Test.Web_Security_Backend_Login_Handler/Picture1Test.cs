@@ -65,15 +65,15 @@ namespace Test.Web_Security_Backend_Login_Handler
         #endregion
 
 
-        [TestMethod()]
-        public void calculate_keyTest()
-        {
-            Picture1_Accessor target = new Picture1_Accessor();
-            target._selected_value = "thing.ico";
-            int key = 547634;
-            string expected = "2190536";
-            string actual = target.calculate_key(key);
-            Assert.AreEqual(expected, actual);
-        }
+        //[TestMethod()]
+        //public void calculate_keyTest()
+        //{
+        //    Picture1_Accessor target = new Picture1_Accessor();
+        //    target._selected_value = "thing.ico";
+        //    int key = 547634;
+        //    int expected = 2190536;
+        //    int actual = target.calculate_key(key);
+        //    Assert.AreEqual(expected, actual);
+        //}
     }
 }

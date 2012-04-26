@@ -7,23 +7,11 @@ namespace RSAClasses
 {
     public static class Primes
     {
-        private static ulong[] primes = {509, 521, 523, 541, 547, 557,
-    563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 617, 619, 631, 641,
-    643, 647, 653, 659, 661, 673, 677, 683, 691, 701, 709, 719, 727, 733,
-    739, 743, 751, 757, 761,
-                               769, 773, 787, 797, 809, 811, 821,
-    823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887, 907, 911,
-    919, 929, 937, 941, 947, 953, 967, 971, 977, 983, 991, 997, 1009,
-    1013, 1019, 1021, 1031, 1033, 1039,
-                                1049, 1051, 1061, 1063, 1069, 1087,
-    1091, 1093, 1097, 1103, 1109, 1117, 1123, 1129, 1151, 1153, 1163,
-    1171, 1181, 1187, 1193, 1201, 1213, 1217, 1223, 1229, 1231, 1237,
-    1249, 1259, 1277, 1279, 1283, 1289, 1291,
-                                1297, 1301, 1303, 1307, 1319, 1321,
-    1327, 1361, 1367, 1373, 1381, 1399, 1409, 1423, 1427, 1429, 1433,
-    1439, 1447, 1451, 1453, 1459, 1471, 1481, 1483, 1487, 1489, 1493,
-    1499, 1511, 1523, 1531, 1543, 1549, 1553,
-                                1559, 1567, 1571, 1579, 1583, 1597};
+        private static ulong[] primes = {509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683, 691, 701, 709, 719, 727, 733, 739, 743, 751, 757, 761,
+                                 769, 773, 787, 797, 809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983, 991, 997, 1009, 1013, 1019, 1021, 1031, 1033, 1039,
+                                 1049, 1051, 1061, 1063, 1069, 1087, 1091, 1093, 1097, 1103, 1109, 1117, 1123, 1129, 1151, 1153, 1163, 1171, 1181, 1187, 1193, 1201, 1213, 1217, 1223, 1229, 1231, 1237, 1249, 1259, 1277, 1279, 1283, 1289, 1291,
+                                 1297, 1301, 1303, 1307, 1319, 1321, 1327, 1361, 1367, 1373, 1381, 1399, 1409, 1423, 1427, 1429, 1433, 1439, 1447, 1451, 1453, 1459, 1471, 1481, 1483, 1487, 1489, 1493, 1499, 1511, 1523, 1531, 1543, 1549, 1553,
+                                 1559, 1567, 1571, 1579, 1583, 1597};
 
         private static Random random = new Random();
 
@@ -39,7 +27,7 @@ namespace RSAClasses
         private ulong e;
         private ulong d;
 
-        private const int blockSize = 2;
+        protected const int blockSize = 2;
 
         public RSA(ulong p = 2, ulong q = 3, ulong firste = 2)
         {
@@ -132,7 +120,7 @@ namespace RSAClasses
             //return lastx;
         }
 
-        protected ulong  blockToUlong(string input)
+        protected ulong blockToUlong(string input)
         {
             ulong output = 0;
 
@@ -150,11 +138,40 @@ namespace RSAClasses
 
             for (int i = 0; i < blockSize; i++)
             {
-                output = Convert.ToChar(input % 1000) + output;
+                output = Convert.ToChar((input % 1000)) + output;
                 input = input / 1000;
             }
 
             return output;
+        }
+
+        protected ulong cBlockToUlong(string input)
+        {
+            return Convert.ToUInt64(input);
+        }
+
+        protected string cUlongToBlock(ulong input)
+        {
+            if (n > 1000000)
+            {
+                string output = input.ToString();
+                while (output.Length < 7)
+                {
+                    output = "0" + output;
+                }
+
+                return output;
+            }
+            else
+            {
+                string output = input.ToString();
+                while (output.Length < 6)
+                {
+                    output = "0" + output;
+                }
+
+                return output;
+            }
         }
 
         public ulong encryptUlong(ulong M)
@@ -181,8 +198,6 @@ namespace RSAClasses
             }
 
             return part;
-
-            //return (C ^ d) % n;
         }
 
         public void recalculateKeys(ulong p, ulong q, ulong firste = 2)
@@ -251,7 +266,7 @@ namespace RSAClasses
 
                 ulong C = encryptUlong(M);
 
-                ciphertext += ulongToBlock(C);
+                ciphertext += cUlongToBlock(C);
             }
 
             return ciphertext;
@@ -259,14 +274,21 @@ namespace RSAClasses
 
         public string decrypt(string ciphertext)
         {
-            int blocks = ciphertext.Length / blockSize;
+            int cblockSize = blockSize*3;
+
+            if (n > 1000000)
+            {
+                cblockSize++;
+            }
+
+            int blocks = ciphertext.Length / cblockSize;
             string plaintext = "";
 
             for (int i = 0; i < blocks; i++)
             {
-                string block = ciphertext.Substring(i*blockSize, blockSize);
+                string block = ciphertext.Substring(i*cblockSize, cblockSize);
 
-                ulong C = blockToUlong(block);
+                ulong C = cBlockToUlong(block);
 
                 ulong M = decryptUlong(C);
 

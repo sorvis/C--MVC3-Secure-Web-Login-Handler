@@ -76,10 +76,11 @@
     <Compile Include="Models\db_calculatedKey.cs" />
     <Compile Include="Models\Display_Data\data_generator.cs" />
     <Compile Include="Models\Display_Data\DataChooser.cs" />
+    <Compile Include="Models\Display_Data\Button_Key_data.cs" />
     <Compile Include="Models\Display_Data\Generic_data.cs" />
     <Compile Include="Models\Display_Data\IData.cs" />
-    <Compile Include="Models\Display_Data\Picture1.cs" />
-    <Compile Include="Models\Display_Data\Stage_1_picture.cs" />
+    <Compile Include="Models\Display_Data\Stages\Gridbox_data.cs" />
+    <Compile Include="Models\Display_Data\Stage_Data.cs" />
     <Compile Include="Models\EF_Login_Data_Repository.cs" />
     <Compile Include="Models\encryption_wrapper.cs" />
     <Compile Include="Models\IDataRepository.cs" />
