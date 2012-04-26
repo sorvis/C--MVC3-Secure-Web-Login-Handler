@@ -109,5 +109,11 @@ namespace Web_Security_Backend_Login_Handler.Models
             get_session(id).expired = true;
             _db.SaveChanges();
         }
+
+        public void mark_session_successful(int id)
+        {
+            get_session(id).successful_login = true;
+            _db.SaveChanges();
+        }
     }
 }

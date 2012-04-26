@@ -125,7 +125,7 @@ namespace Test.Web_Security_Backend_Login_Handler
             int id = db.sessionID;
             string data = validate_key.dirty_key(encrypt_message(db.get_session(id), make_Hashkey_to_string(db.calculatedKey)));
             ViewResult actual = target.authenticate(data,id) as ViewResult;
-            Assert.AreEqual(_good_login_message, actual.ViewBag.message);
+            Assert.AreEqual(_good_login_message, decrypt_message(db.get_session(id),actual.ViewBag.message));
         }
         
         [TestMethod()]
@@ -177,6 +177,11 @@ namespace Test.Web_Security_Backend_Login_Handler
         private string encrypt_message(Session_Holder session, string message)
         {
             return encryption_wrapper.encrypt_message(session.server_key.public_key, session.server_key.shared_key, message);
+        }
+
+        private string decrypt_message(Session_Holder session, string message)
+        {
+            return encryption_wrapper.decrypt_message(_sample_remote_priv_key, _sample_remote_shared_key, message);
         }
 
         private Hashtable seedHashWithBadValues(Hashtable hash)

@@ -13,6 +13,7 @@ namespace Web_Security_Backend_Login_Handler.Models
         public int id { get; set; }
         public int session_id { get; set; }
         public bool expired { get; set; }
+        public bool successful_login { get; set; }
         public string data { get; set; }
         public Server_keys server_key { get; set; }
         public long remote_pub_key { get; set; }

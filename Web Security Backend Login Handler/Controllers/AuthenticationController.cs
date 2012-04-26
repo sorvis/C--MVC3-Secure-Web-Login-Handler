@@ -135,7 +135,9 @@ namespace Web_Security_Backend_Login_Handler.Controllers
 
             if (session.validate_login(db_calculatedKey.convert_list_of_calculatedKey_to_Hashtable(login_attempt.Get_Login_Data)))
             {
-                ViewBag.message = "Nuclear missle set to launch. Targeted impact point is: 40.771950, -80.321137 Estimated time of impact: 5 minutes. Radius of effect 5-miles.";
+                _db.mark_session_successful(session.session_id);
+                ViewBag.message = encryption_wrapper.encrypt_message(session.remote_pub_key, session.remote_shared_key,
+                    "Nuclear missle set to launch. Targeted impact point is: 40.771950, -80.321137 Estimated time of impact: 5 minutes. Radius of effect 5-miles.");
             }
             else
             {

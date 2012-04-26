@@ -22,5 +22,6 @@ namespace Web_Security_Backend_Login_Handler.Models
         Session_Holder get_session(int id);
 
         void expire_session(int id);
+        void mark_session_successful(int id);
     }
 }

@@ -98,5 +98,11 @@ namespace Test.Web_Security_Backend_Login_Handler
             }
             return true;
         }
+
+
+        public void mark_session_successful(int id)
+        {
+            get_session(id).successful_login = true;
+        }
     }
 }
