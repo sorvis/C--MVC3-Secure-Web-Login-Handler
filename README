@@ -1,0 +1,3 @@
+Server handler for logining in users over a unsecured network without compromising login data or allowing replay attacks.
+
+Client side is built in flash and handles encrpyting and decrypting of login data to and from the server.
