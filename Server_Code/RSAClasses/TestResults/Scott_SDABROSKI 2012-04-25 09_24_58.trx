@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="74392ba1-bd63-4e68-b291-3220918c0924" name="Scott@SDABROSKI 2012-04-25 09:24:58" runUser="SDABROSKI\Scott" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="c39100f7-7fdf-4760-8e72-70b98aab7b63">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Scott_SDABROSKI 2012-04-25 09_24_58">
+      <DeploymentItem filename="E:\Scott's Stuff\School Work\Geneva College\8 2012 Spring\CSC 452\RSAClasses\RSAClasses\bin\Debug\RSAClasses.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-04-25T09:24:58.6864750-04:00" queuing="2012-04-25T09:25:02.1803920-04:00" start="2012-04-25T09:25:02.6373940-04:00" finish="2012-04-25T09:25:03.5172205-04:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="17" executed="17" passed="11" error="0" failed="6" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="getPublicKeyTest" storage="e:\scott's stuff\school work\geneva college\8 2012 spring\csc 452\rsaclasses\testrsa\bin\debug\testrsa.dll" id="5ccda0e6-cb57-22aa-a61a-d5d7db017a1e">
+      <Execution id="717ccbb0-30cf-4d07-916e-b4425c0f4c25" />
+      <TestMethod codeBase="E:/Scott's Stuff/School Work/Geneva College/8 2012 Spring/CSC 452/RSAClasses/TestRSA/bin/Debug/TestRSA.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestRSA.RSATest, TestRSA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getPublicKeyTest" />
+    </UnitTest>
+    <UnitTest name="ulongToBlockTest" storage="e:\scott's stuff\school work\geneva college\8 2012 spring\csc 452\rsaclasses\testrsa\bin\debug\testrsa.dll" id="e31daab1-e762-4c09-cb80-8ce5d2f94775">
+      <DeploymentItems>
+        <DeploymentItem filename="RSAClasses.dll" />
+      </DeploymentItems>
+      <Execution id="2df0ef7c-d882-494b-a754-ece393133f4b" />
+      <TestMethod codeBase="E:/Scott's Stuff/School Work/Geneva College/8 2012 Spring/CSC 452/RSAClasses/TestRSA/bin/Debug/TestRSA.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestRSA.RSATest, TestRSA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ulongToBlockTest" />
+    </UnitTest>
+    <UnitTest name="RSAConstructorTest" storage="e:\scott's stuff\school work\geneva college\8 2012 spring\csc 452\rsaclasses\testrsa\bin\debug\testrsa.dll" id="fdf5766e-3956-7562-7b72-16531bffbb9a">
+      <Execution id="6c3d4933-f079-4a18-85de-cb5096ce3f02" />
+      <TestMethod codeBase="E:/Scott's Stuff/School Work/Geneva College/8 2012 Spring/CSC 452/RSAClasses/TestRSA/bin/Debug/TestRSA.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestRSA.RSATest, TestRSA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RSAConstructorTest" />
+    </UnitTest>
+    <UnitTest name="getPrivateKeyTest" storage="e:\scott's stuff\school work\geneva college\8 2012 spring\csc 452\rsaclasses\testrsa\bin\debug\testrsa.dll" id="748a8f2e-d148-697d-60d1-f99da6697e3a">
+      <Execution id="cfc0075a-1157-425f-b127-06b3a1561b8c" />
+      <TestMethod codeBase="E:/Scott's Stuff/School Work/Geneva College/8 2012 Spring/CSC 452/RSAClasses/TestRSA/bin/Debug/TestRSA.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestRSA.RSATest, TestRSA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getPrivateKeyTest" />
+    </UnitTest>
+    <UnitTest name="decryptUlongTest" storage="e:\scott's stuff\school work\geneva college\8 2012 spring\csc 452\rsaclasses\testrsa\bin\debug\testrsa.dll" id="72c2e1ea-f683-de09-46c7-13a8b5647aa6">
+      <DeploymentItems>
+        <DeploymentItem filename="RSAClasses.dll" />
+      </DeploymentItems>
+      <Execution id="cf5c5cd3-773b-4acc-a9ff-8a931c5b272d" />
+      <TestMethod codeBase="E:/Scott's Stuff/School Work/Geneva College/8 2012 Spring/CSC 452/RSAClasses/TestRSA/bin/Debug/TestRSA.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestRSA.RSATest, TestRSA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="decryptUlongTest" />
+    </UnitTest>
+    <UnitTest name="ulongToBlockConsistencyTest" storage="e:\scott's stuff\school work\geneva college\8 2012 spring\csc 452\rsaclasses\testrsa\bin\debug\testrsa.dll" id="87c7c7ef-baec-8a96-99e0-019a01fa5242">
+      <DeploymentItems>
+        <DeploymentItem filename="RSAClasses.dll" />
+      </DeploymentItems>
+      <Execution id="5676f047-82ae-42a1-92a3-b717fecec514" />
+      <TestMethod codeBase="E:/Scott's Stuff/School Work/Geneva College/8 2012 Spring/CSC 452/RSAClasses/TestRSA/bin/Debug/TestRSA.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestRSA.RSATest, TestRSA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ulongToBlockConsistencyTest" />
+    </UnitTest>
+    <UnitTest name="gcdTest" storage="e:\scott's stuff\school work\geneva college\8 2012 spring\csc 452\rsaclasses\testrsa\bin\debug\testrsa.dll" id="e0437eed-f780-57e1-2179-2bf21a3ec276">
+      <DeploymentItems>
+        <DeploymentItem filename="RSAClasses.dll" />
+      </DeploymentItems>
+      <Execution id="90ef8a6f-f161-4177-b942-99a77a27ff96" />
+      <TestMethod codeBase="E:/Scott's Stuff/School Work/Geneva College/8 2012 Spring/CSC 452/RSAClasses/TestRSA/bin/Debug/TestRSA.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestRSA.RSATest, TestRSA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="gcdTest" />
+    </UnitTest>
+    <UnitTest name="ulongEncryptionConsistencyTest" storage="e:\scott's stuff\school work\geneva college\8 2012 spring\csc 452\rsaclasses\testrsa\bin\debug\testrsa.dll" id="2d369b67-841e-9a52-f611-3d45bcd43df4">
+      <DeploymentItems>
+        <DeploymentItem filename="RSAClasses.dll" />
+      </DeploymentItems>
+      <Execution id="5ffdb99e-d63b-4729-bcf1-7a485c1a95fa" />
+      <TestMethod codeBase="E:/Scott's Stuff/School Work/Geneva College/8 2012 Spring/CSC 452/RSAClasses/TestRSA/bin/Debug/TestRSA.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestRSA.RSATest, TestRSA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ulongEncryptionConsistencyTest" />
+    </UnitTest>
+    <UnitTest name="setPrivateKeyTest" storage="e:\scott's stuff\school work\geneva college\8 2012 spring\csc 452\rsaclasses\testrsa\bin\debug\testrsa.dll" id="b8981d34-8594-77fc-1933-bc5fd03a5815">
+      <Execution id="3fd05594-803e-445d-a22b-b3d296b0e46f" />
+      <TestMethod codeBase="E:/Scott's Stuff/School Work/Geneva College/8 2012 Spring/CSC 452/RSAClasses/TestRSA/bin/Debug/TestRSA.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestRSA.RSATest, TestRSA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="setPrivateKeyTest" />
+    </UnitTest>
+    <UnitTest name="encryptionConsistencyTest" storage="e:\scott's stuff\school work\geneva college\8 2012 spring\csc 452\rsaclasses\testrsa\bin\debug\testrsa.dll" id="816cc9f4-a77b-7e69-7744-1c1759fa27d1">
+      <Execution id="8fe6816f-1cbc-45df-bbf1-3f8656f13c7d" />
+      <TestMethod codeBase="E:/Scott's Stuff/School Work/Geneva College/8 2012 Spring/CSC 452/RSAClasses/TestRSA/bin/Debug/TestRSA.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestRSA.RSATest, TestRSA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="encryptionConsistencyTest" />
+    </UnitTest>
+    <UnitTest name="setPublicKeyTest" storage="e:\scott's stuff\school work\geneva college\8 2012 spring\csc 452\rsaclasses\testrsa\bin\debug\testrsa.dll" id="1a820d2b-c66b-f40e-f5b9-4ced96d3432d">
+      <Execution id="ff3eb20d-498d-496d-8813-c113cae61932" />
+      <TestMethod codeBase="E:/Scott's Stuff/School Work/Geneva College/8 2012 Spring/CSC 452/RSAClasses/TestRSA/bin/Debug/TestRSA.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestRSA.RSATest, TestRSA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="setPublicKeyTest" />
+    </UnitTest>
+    <UnitTest name="blockToUlongTest" storage="e:\scott's stuff\school work\geneva college\8 2012 spring\csc 452\rsaclasses\testrsa\bin\debug\testrsa.dll" id="539c9340-a804-7a42-311f-6a1a6a1665fa">
+      <DeploymentItems>
+        <DeploymentItem filename="RSAClasses.dll" />
+      </DeploymentItems>
+      <Execution id="b8c2243b-8382-4249-b78b-65b61ee51020" />
+      <TestMethod codeBase="E:/Scott's Stuff/School Work/Geneva College/8 2012 Spring/CSC 452/RSAClasses/TestRSA/bin/Debug/TestRSA.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestRSA.RSATest, TestRSA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="blockToUlongTest" />
+    </UnitTest>
+    <UnitTest name="extendedGcdTest" storage="e:\scott's stuff\school work\geneva college\8 2012 spring\csc 452\rsaclasses\testrsa\bin\debug\testrsa.dll" id="1b69a5d3-4699-e5d4-4a1a-af8bb1ed965f">
+      <DeploymentItems>
+        <DeploymentItem filename="RSAClasses.dll" />
+      </DeploymentItems>
+      <Execution id="2fe7c175-6da4-40ab-b578-3b683eebe49a" />
+      <TestMethod codeBase="E:/Scott's Stuff/School Work/Geneva College/8 2012 Spring/CSC 452/RSAClasses/TestRSA/bin/Debug/TestRSA.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestRSA.RSATest, TestRSA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="extendedGcdTest" />
+    </UnitTest>
+    <UnitTest name="encryptUlongTest" storage="e:\scott's stuff\school work\geneva college\8 2012 spring\csc 452\rsaclasses\testrsa\bin\debug\testrsa.dll" id="373184ad-e3ae-87ac-0f61-930171229dad">
+      <DeploymentItems>
+        <DeploymentItem filename="RSAClasses.dll" />
+      </DeploymentItems>
+      <Execution id="58b94c80-4747-4150-ba8b-17c86f653b12" />
+      <TestMethod codeBase="E:/Scott's Stuff/School Work/Geneva College/8 2012 Spring/CSC 452/RSAClasses/TestRSA/bin/Debug/TestRSA.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestRSA.RSATest, TestRSA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="encryptUlongTest" />
+    </UnitTest>
+    <UnitTest name="encryptTest" storage="e:\scott's stuff\school work\geneva college\8 2012 spring\csc 452\rsaclasses\testrsa\bin\debug\testrsa.dll" id="37d38e0f-a0a3-f805-960b-b79c907db2d1">
+      <Execution id="000a207d-6e76-4de8-b960-6e867c93e1c3" />
+      <TestMethod codeBase="E:/Scott's Stuff/School Work/Geneva College/8 2012 Spring/CSC 452/RSAClasses/TestRSA/bin/Debug/TestRSA.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestRSA.RSATest, TestRSA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="encryptTest" />
+    </UnitTest>
+    <UnitTest name="decryptTest" storage="e:\scott's stuff\school work\geneva college\8 2012 spring\csc 452\rsaclasses\testrsa\bin\debug\testrsa.dll" id="87ef48b7-e5f8-5712-9b96-8e42cc8290ed">
+      <Execution id="59620127-7812-4f28-95cb-63efecd409d7" />
+      <TestMethod codeBase="E:/Scott's Stuff/School Work/Geneva College/8 2012 Spring/CSC 452/RSAClasses/TestRSA/bin/Debug/TestRSA.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestRSA.RSATest, TestRSA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="decryptTest" />
+    </UnitTest>
+    <UnitTest name="recalculateKeysTest" storage="e:\scott's stuff\school work\geneva college\8 2012 spring\csc 452\rsaclasses\testrsa\bin\debug\testrsa.dll" id="38ddcbdc-90ef-2951-c548-802e8fc5794a">
+      <Execution id="4163d269-d4a9-4c1e-bdef-42bb0267a8e2" />
+      <TestMethod codeBase="E:/Scott's Stuff/School Work/Geneva College/8 2012 Spring/CSC 452/RSAClasses/TestRSA/bin/Debug/TestRSA.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestRSA.RSATest, TestRSA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="recalculateKeysTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="1a820d2b-c66b-f40e-f5b9-4ced96d3432d" executionId="ff3eb20d-498d-496d-8813-c113cae61932" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1b69a5d3-4699-e5d4-4a1a-af8bb1ed965f" executionId="2fe7c175-6da4-40ab-b578-3b683eebe49a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2d369b67-841e-9a52-f611-3d45bcd43df4" executionId="5ffdb99e-d63b-4729-bcf1-7a485c1a95fa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="373184ad-e3ae-87ac-0f61-930171229dad" executionId="58b94c80-4747-4150-ba8b-17c86f653b12" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="37d38e0f-a0a3-f805-960b-b79c907db2d1" executionId="000a207d-6e76-4de8-b960-6e867c93e1c3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="38ddcbdc-90ef-2951-c548-802e8fc5794a" executionId="4163d269-d4a9-4c1e-bdef-42bb0267a8e2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="539c9340-a804-7a42-311f-6a1a6a1665fa" executionId="b8c2243b-8382-4249-b78b-65b61ee51020" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5ccda0e6-cb57-22aa-a61a-d5d7db017a1e" executionId="717ccbb0-30cf-4d07-916e-b4425c0f4c25" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="72c2e1ea-f683-de09-46c7-13a8b5647aa6" executionId="cf5c5cd3-773b-4acc-a9ff-8a931c5b272d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="748a8f2e-d148-697d-60d1-f99da6697e3a" executionId="cfc0075a-1157-425f-b127-06b3a1561b8c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="816cc9f4-a77b-7e69-7744-1c1759fa27d1" executionId="8fe6816f-1cbc-45df-bbf1-3f8656f13c7d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="87c7c7ef-baec-8a96-99e0-019a01fa5242" executionId="5676f047-82ae-42a1-92a3-b717fecec514" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="87ef48b7-e5f8-5712-9b96-8e42cc8290ed" executionId="59620127-7812-4f28-95cb-63efecd409d7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b8981d34-8594-77fc-1933-bc5fd03a5815" executionId="3fd05594-803e-445d-a22b-b3d296b0e46f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e0437eed-f780-57e1-2179-2bf21a3ec276" executionId="90ef8a6f-f161-4177-b942-99a77a27ff96" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e31daab1-e762-4c09-cb80-8ce5d2f94775" executionId="2df0ef7c-d882-494b-a754-ece393133f4b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fdf5766e-3956-7562-7b72-16531bffbb9a" executionId="6c3d4933-f079-4a18-85de-cb5096ce3f02" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="ff3eb20d-498d-496d-8813-c113cae61932" testId="1a820d2b-c66b-f40e-f5b9-4ced96d3432d" testName="setPublicKeyTest" computerName="SDABROSKI" duration="00:00:00.0206646" startTime="2012-04-25T09:25:02.7116080-04:00" endTime="2012-04-25T09:25:03.1656805-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ff3eb20d-498d-496d-8813-c113cae61932">
+    </UnitTestResult>
+    <UnitTestResult executionId="2fe7c175-6da4-40ab-b578-3b683eebe49a" testId="1b69a5d3-4699-e5d4-4a1a-af8bb1ed965f" testName="extendedGcdTest" computerName="SDABROSKI" duration="00:00:00.0003718" startTime="2012-04-25T09:25:03.1871635-04:00" endTime="2012-04-25T09:25:03.2086465-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2fe7c175-6da4-40ab-b578-3b683eebe49a">
+    </UnitTestResult>
+    <UnitTestResult executionId="5ffdb99e-d63b-4729-bcf1-7a485c1a95fa" testId="2d369b67-841e-9a52-f611-3d45bcd43df4" testName="ulongEncryptionConsistencyTest" computerName="SDABROSKI" duration="00:00:00.0740272" startTime="2012-04-25T09:25:03.2242705-04:00" endTime="2012-04-25T09:25:03.3023905-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5ffdb99e-d63b-4729-bcf1-7a485c1a95fa">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;28&gt;. Actual:&lt;54&gt;. </Message>
+          <StackTrace>   at TestRSA.RSATest.ulongEncryptionConsistencyTest() in E:\Scott's Stuff\School Work\Geneva College\8 2012 Spring\CSC 452\RSAClasses\TestRSA\RSATest.cs:line 113
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="58b94c80-4747-4150-ba8b-17c86f653b12" testId="373184ad-e3ae-87ac-0f61-930171229dad" testName="encryptUlongTest" computerName="SDABROSKI" duration="00:00:00.0003050" startTime="2012-04-25T09:25:03.3033670-04:00" endTime="2012-04-25T09:25:03.3121555-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="58b94c80-4747-4150-ba8b-17c86f653b12">
+    </UnitTestResult>
+    <UnitTestResult executionId="000a207d-6e76-4de8-b960-6e867c93e1c3" testId="37d38e0f-a0a3-f805-960b-b79c907db2d1" testName="encryptTest" computerName="SDABROSKI" duration="00:00:00.0030436" startTime="2012-04-25T09:25:03.3141085-04:00" endTime="2012-04-25T09:25:03.3238735-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="000a207d-6e76-4de8-b960-6e867c93e1c3">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;Ϙɜʦá&#x4;˗ǳ&#x13;©ȞȮΘTýɩʹ̡Łʬʲ×Eý&gt;. Actual:&lt;Í˪ɇͺ*&#x1E;̬ͺ˄ʤ˶˳ŨƊǌɽʜΰþ̧ǞŹ&gt;. </Message>
+          <StackTrace>   at TestRSA.RSATest.encryptTest() in E:\Scott's Stuff\School Work\Geneva College\8 2012 Spring\CSC 452\RSAClasses\TestRSA\RSATest.cs:line 226
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4163d269-d4a9-4c1e-bdef-42bb0267a8e2" testId="38ddcbdc-90ef-2951-c548-802e8fc5794a" testName="recalculateKeysTest" computerName="SDABROSKI" duration="00:00:00.0020647" startTime="2012-04-25T09:25:03.3248500-04:00" endTime="2012-04-25T09:25:03.3434035-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4163d269-d4a9-4c1e-bdef-42bb0267a8e2">
+    </UnitTestResult>
+    <UnitTestResult executionId="b8c2243b-8382-4249-b78b-65b61ee51020" testId="539c9340-a804-7a42-311f-6a1a6a1665fa" testName="blockToUlongTest" computerName="SDABROSKI" duration="00:00:00.0002712" startTime="2012-04-25T09:25:03.3453565-04:00" endTime="2012-04-25T09:25:03.3619570-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b8c2243b-8382-4249-b78b-65b61ee51020">
+    </UnitTestResult>
+    <UnitTestResult executionId="717ccbb0-30cf-4d07-916e-b4425c0f4c25" testId="5ccda0e6-cb57-22aa-a61a-d5d7db017a1e" testName="getPublicKeyTest" computerName="SDABROSKI" duration="00:00:00.0004078" startTime="2012-04-25T09:25:03.3639100-04:00" endTime="2012-04-25T09:25:03.3736750-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="717ccbb0-30cf-4d07-916e-b4425c0f4c25">
+    </UnitTestResult>
+    <UnitTestResult executionId="cf5c5cd3-773b-4acc-a9ff-8a931c5b272d" testId="72c2e1ea-f683-de09-46c7-13a8b5647aa6" testName="decryptUlongTest" computerName="SDABROSKI" duration="00:00:00.0021167" startTime="2012-04-25T09:25:03.3766045-04:00" endTime="2012-04-25T09:25:03.3824635-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cf5c5cd3-773b-4acc-a9ff-8a931c5b272d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;28&gt;. Actual:&lt;54&gt;. </Message>
+          <StackTrace>   at TestRSA.RSATest.decryptUlongTest() in E:\Scott's Stuff\School Work\Geneva College\8 2012 Spring\CSC 452\RSAClasses\TestRSA\RSATest.cs:line 102
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="cfc0075a-1157-425f-b127-06b3a1561b8c" testId="748a8f2e-d148-697d-60d1-f99da6697e3a" testName="getPrivateKeyTest" computerName="SDABROSKI" duration="00:00:00.0004198" startTime="2012-04-25T09:25:03.3853930-04:00" endTime="2012-04-25T09:25:03.3980875-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cfc0075a-1157-425f-b127-06b3a1561b8c">
+    </UnitTestResult>
+    <UnitTestResult executionId="8fe6816f-1cbc-45df-bbf1-3f8656f13c7d" testId="816cc9f4-a77b-7e69-7744-1c1759fa27d1" testName="encryptionConsistencyTest" computerName="SDABROSKI" duration="00:00:00.0026036" startTime="2012-04-25T09:25:03.3990640-04:00" endTime="2012-04-25T09:25:03.4088290-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8fe6816f-1cbc-45df-bbf1-3f8656f13c7d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;I had a fun time today.&gt;. Actual:&lt;ųÚ΂Ǌãʈ
+΍¨ɏ˵ϑ6Ȍ̃̅ôŇȚȃƢ&gt;. </Message>
+          <StackTrace>   at TestRSA.RSATest.encryptionConsistencyTest() in E:\Scott's Stuff\School Work\Geneva College\8 2012 Spring\CSC 452\RSAClasses\TestRSA\RSATest.cs:line 245
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5676f047-82ae-42a1-92a3-b717fecec514" testId="87c7c7ef-baec-8a96-99e0-019a01fa5242" testName="ulongToBlockConsistencyTest" computerName="SDABROSKI" duration="00:00:00.0003243" startTime="2012-04-25T09:25:03.4117585-04:00" endTime="2012-04-25T09:25:03.4205470-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5676f047-82ae-42a1-92a3-b717fecec514">
+    </UnitTestResult>
+    <UnitTestResult executionId="59620127-7812-4f28-95cb-63efecd409d7" testId="87ef48b7-e5f8-5712-9b96-8e42cc8290ed" testName="decryptTest" computerName="SDABROSKI" duration="00:00:00.0043907" startTime="2012-04-25T09:25:03.4215235-04:00" endTime="2012-04-25T09:25:03.4332415-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="59620127-7812-4f28-95cb-63efecd409d7">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;I had a fun time today.&gt;. Actual:&lt;ƗĹßńɖΊρˍɭȤ_̻Ǚͱˌ˜êʴ΋ʡô
+ȜȨ&gt;. </Message>
+          <StackTrace>   at TestRSA.RSATest.decryptTest() in E:\Scott's Stuff\School Work\Geneva College\8 2012 Spring\CSC 452\RSAClasses\TestRSA\RSATest.cs:line 237
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3fd05594-803e-445d-a22b-b3d296b0e46f" testId="b8981d34-8594-77fc-1933-bc5fd03a5815" testName="setPrivateKeyTest" computerName="SDABROSKI" duration="00:00:00.0003321" startTime="2012-04-25T09:25:03.4351945-04:00" endTime="2012-04-25T09:25:03.4488655-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3fd05594-803e-445d-a22b-b3d296b0e46f">
+    </UnitTestResult>
+    <UnitTestResult executionId="90ef8a6f-f161-4177-b942-99a77a27ff96" testId="e0437eed-f780-57e1-2179-2bf21a3ec276" testName="gcdTest" computerName="SDABROSKI" duration="00:00:00.0003109" startTime="2012-04-25T09:25:03.4517950-04:00" endTime="2012-04-25T09:25:03.4683955-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="90ef8a6f-f161-4177-b942-99a77a27ff96">
+    </UnitTestResult>
+    <UnitTestResult executionId="2df0ef7c-d882-494b-a754-ece393133f4b" testId="e31daab1-e762-4c09-cb80-8ce5d2f94775" testName="ulongToBlockTest" computerName="SDABROSKI" duration="00:00:00.0002603" startTime="2012-04-25T09:25:03.4762075-04:00" endTime="2012-04-25T09:25:03.4801135-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2df0ef7c-d882-494b-a754-ece393133f4b">
+    </UnitTestResult>
+    <UnitTestResult executionId="6c3d4933-f079-4a18-85de-cb5096ce3f02" testId="fdf5766e-3956-7562-7b72-16531bffbb9a" testName="RSAConstructorTest" computerName="SDABROSKI" duration="00:00:00.0022237" startTime="2012-04-25T09:25:03.4820665-04:00" endTime="2012-04-25T09:25:03.4889020-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6c3d4933-f079-4a18-85de-cb5096ce3f02">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;2 (System.Int32)&gt;. Actual:&lt;2 (System.UInt64)&gt;. </Message>
+          <StackTrace>   at TestRSA.RSATest.RSAConstructorTest() in E:\Scott's Stuff\School Work\Geneva College\8 2012 Spring\CSC 452\RSAClasses\TestRSA\RSATest.cs:line 64
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
